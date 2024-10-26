@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "ThongDong - Register";
+}
+<div class="container">
+    <div class="register-form">
+        <h2 class="slideanim-top">Register</h2>
+        <form class="slideanim" action="@Url.Action("Register","Accounts")" method="post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="inputGroup">
+                <input type="text" required autocomplete="on" name="Username"/>
+                <label for="Username"><span class="glyphicon glyphicon-user"></span> Username</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="text" required autocomplete="on" name="Email">
+                <label for="Email"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="number" required autocomplete="on" name="Phone">
+                <label for="Phone"><i class="fas fa-phone"></i> Phone</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="password" required name="Password" />
+                <label for="Password"><span class="glyphicon glyphicon-lock"></span> Password</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="password" required name="ConfirmPassword">
+                <label for="Confirm Password">
+                    <span class="glyphicon glyphicon-lock"></span> Confirm
+                    Password
+                </label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="button-form">REGISTER</button>
+            </div>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? @Html.ActionLink("Login here", "Login", "Accounts", new { area = "" }, new { @class = "" })</p>
+        </div>
+    </div>
+</div>
+

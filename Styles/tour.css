@@ -1,0 +1,237 @@
+.tour-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tour-card {
+    width: calc(50% - 20px);
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 1000px) {
+    .tour-card {
+        width: 100%;
+        margin: 0 0 20px;
+    }
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tour-img {
+    width: 100%;
+    max-height: 280px;
+    overflow: hidden;
+}
+
+.tour-card .tour-img img {
+    width: 100%;
+    object-fit: cover;
+    vertical-align: top;
+    transition: transform 0.3s ease;
+}
+
+.tour-card:hover .tour-img img {
+    transform: scale(1.1);
+}
+
+.tour-card .tour-details {
+    padding: 20px;
+}
+
+.tour-card h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.tour-card:hover h3 {
+    color: #ff6600;
+}
+
+.tour-card p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.tour-card a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.tour-card a:hover {
+    color: #ff6600;
+}
+
+.search-form {
+    margin-bottom: 30px;
+}
+
+.search-form #search-form {
+    background-color: #787878;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    padding: 35px 60px;
+}
+
+.search-form #search-form h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.search-form #search-form select {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    width: 100%;
+    cursor: pointer;
+}
+
+.search-form #search-form option {
+    background-color: darkgray;
+}
+
+.search-form #search-form button {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 8px 30px;
+    display: inline-block;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.search-form #search-form button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+@media (max-width: 1200px) {
+    .search-form #search-form {
+        padding: 20px 30px;
+    }
+
+    .search-form #search-form select,
+    .search-form #search-form button {
+        margin-bottom: 15px;
+    }
+}
+
+#total-price {
+    font-size: 160%;
+    color: orangered;
+}
+
+.tour-form {
+    background-color: white;
+    padding: 5px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+.tour-form label {
+    font-size: 120%;
+}
+
+.col-md-8 img {
+    width: 100%;
+}
+
+.form-fixed {
+    position: fixed;
+    top: 125px;
+    right: 100px;
+    width: 400px;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    .form-fixed {
+        display: none;
+    }
+}
+
+.tab button {
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: -5px;
+    transition: scale 0.2s ease
+}
+
+.tab button:hover {
+    scale: 1.05;
+}
+
+.tab button.active {
+    color: dodgerblue;
+    border-color: dodgerblue;
+    font-size: 110%;
+    border-bottom-width: 3px;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tabcontent.active {
+    display: block;
+    opacity: 1;
+}
+
+.u-chiphi {
+    text-decoration: underline;
+    font-size: 120%;
+}
+
+#note {
+    color: #858585;
+    font-size: 120%;
+    text-align: center;
+    font-style: italic;
+}

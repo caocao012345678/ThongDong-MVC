@@ -1,0 +1,114 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Phan Thiết";
+}
+<head>
+    <style>
+        .header {
+            background-image: url(/Image/Places/bien-phan-thiet.jpg);
+        }
+    </style>
+</head>
+
+
+<div class="header container">
+    <div class="text-center">
+        <h6></h6>
+        <h1 style="color: white;">Phan Thiết</h1>
+    </div>
+</div>
+<header><h3>Phan Thiết</h3></header>
+<br>
+<div class="container">
+    <div class="places-container">
+
+        <div class="places-card slideanim">
+            <a href="tour-PT-NDCMR.html">
+                <div class="places-img">
+                    <img src="~/Image/PT-NDCMR/ivivu-lang-chai-mui-ne-750x390.jpg">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">
+                    Tour Limousine Cao Cấp Phan Thiết 2N1Đ: Nghỉ Dưỡng Centara Mirage Resort -
+                    Bánh Canh Tôm Hùm
+                </h3>
+                <p class="places-description scroll-content">
+                    Xe Limousine hay được gọi là “Chuyên Cơ Mặt Đất” dòng xe
+                    hiện đại, tối ưu và sang trọng, được cải tiến từ những chiếc xe du lịch 40 chỗ thành những chiếc
+                    xe 20 chỗ sang trọng, xe du lịch 29 chỗ thành 18-20 chỗ. Xe Limousine được áp dụng phục vụ cho
+                    hành khách tuyến đường dài để đảm bảo sự nghỉ ngơi và thoải mái khi đi trên xe. Cả nội thất bên
+                    trong của các xe đều được lắp đặt các thiết bị hiện đại và tiện ích nhất cho các trải nghiệm của
+                    hành khách. <br>
+                    Thiên nhiên dường như quá ưu đãi cho bờ biển Phan Thiết, bởi nó chứa đựng những điều cuốn hút du
+                    khách, biển xanh, cát trắng, rặng dừa xanh,…đã tạo cho Phan Thiết sức hấp dẫn khó cưỡng cho
+                    những ai yêu biển, yêu cái nắng vàng trên cát. Ngỡ như khô cằn nhưng lại vô cùng lãng mạn. Đừng
+                    nghĩ Phan Thiết không có gì để khám phá, thật ra nó là một điểm nghĩ dưỡng sau những ngày làm
+                    mệt mỏi, căng thẳng nơi phố thị vô cùng hữu hiệu, là nơi để bạn và gia đình thư giãn vào những
+                    ngày hè oi bức, gắn kết tình thân hay là nơi trăng mật vô cùng lãng mạn.
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$219</h4>
+                <a href="tour-PT-NDCMR.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+
+        <div class="places-card slideanim">
+            <a href="tour-HT-PT-MN.html">
+                <div class="places-img">
+                    <img src="~/Image/HT-PT-MN/ivivu-ho-tram-bia-750x390.jpg">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">
+                    Tour Limousine Phan Thiết 3N2Đ: Hồ Tràm - Phan Thiết - Mũi Né - Công Viên
+                    Tropicana
+                </h3>
+                <p class="places-description scroll-content">
+                    Xe Limousine hay được gọi là “Chuyên Cơ Mặt Đất“Xe
+                    Limousine là dòng xe hiện đại, tối ưu và sang trọng, được cải tiến từ những chiếc xe du lịch 40
+                    chỗ thành những chiếc xe 20 chỗ sang trọng, xe du lịch 29 chỗ thành 18-20 chỗ. Xe Limousine được
+                    áp dụng phục vụ cho hành khách tuyến đường dài để đảm bảo sự nghỉ ngơi và thoải mái khi đi trên
+                    xe. <br>
+                    Thiên nhiên dường như quá ưu đãi cho bờ biển Phan Thiết, bởi nó chứa đựng những điều cuốn hút du
+                    khách, biển xanh, cát trắng, rặng dừa xanh,…đã tạo cho Phan Thiết sức hấp dẫn khó cưỡng cho
+                    những ai yêu biển, yêu cái nắng vàng trên cát. Ngỡ như khô cằn nhưng lại vô cùng lãng mạn. Đừng
+                    nghĩ Phan Thiết không có gì để khám phá, thật ra nó là một điểm nghĩ dưỡng sau những ngày làm
+                    mệt mỏi, căng thẳng nơi phố thị vô cùng hữu hiệu, là nơi để bạn và gia đình thư giãn vào những
+                    ngày hè oi bức, gắn kết tình thân hay là nơi trăng mật vô cùng lãng mạn.
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$219</h4>
+                <a href="tour-HT-PT-MN.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

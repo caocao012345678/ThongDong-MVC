@@ -1,0 +1,58 @@
+﻿@using ThongDong_MVC.Models;
+@{
+    ThongDongDBContext dBContext = new ThongDongDBContext();
+    List<DESTINATION> ListDestination = dBContext.DESTINATIONs.ToList();
+}
+
+<div class="search-form slideanim-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="search-form" name="gs" method="post" action="@Url.Action("navTour","ThongDong")">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h4>Sort Tours By:</h4>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <select name="Location" id="chooseLocation">
+                                @{
+                                    if (ViewBag.LocationID == null)
+                                    {
+                                        <option selected value="0">DESTINATION</option>
+                                        foreach (var item in ListDestination)
+                                        {
+                                            <option value="@item.DESTINATION_ID">@item.NAME</option>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        int lo = ViewBag.LocationID;
+                                        var location = dBContext.DESTINATIONs.First(l => l.DESTINATION_ID == lo);
+
+                                        <option selected value="@location.DESTINATION_ID"> @location.NAME </option>
+                                        foreach (var item in ListDestination)
+                                        {
+                                            if (item.DESTINATION_ID == lo) { continue; }
+                                            else
+                                            {
+                                                <option value = "@item.DESTINATION_ID" > @item.NAME </option>
+                                            }
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <button class="border-button">Search Results</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

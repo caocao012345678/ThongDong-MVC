@@ -1,0 +1,104 @@
+﻿@using ThongDong_MVC.Models
+@{
+    ThongDongDBContext dBContext = new ThongDongDBContext();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/Image/Logo-radius.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/Styles/style.css">
+    @RenderSection("cssBonus", required: false)
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <a class="navbar-brand" href="@Url.Action("Index","ThongDong")">
+                    <img src="~/Image/ThongDong_Logo.png" alt="Logo" class="navbar-logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(" Home", "Index", "ThongDong", new { area = "" }, new { @class = "glyphicon glyphicon-home" })</li>
+                    <li>@Html.ActionLink(" Tour", "navTour", "ThongDong", new { area = "" }, new { @class = "glyphicon glyphicon-plane" })</li>
+                    <li>@Html.ActionLink(" About", "navAbout", "ThongDong", new { area = "" }, new { @class = "glyphicon glyphicon-info-sign" })</li>
+                    <li>@Html.ActionLink(" Guide", "navGuide", "ThongDong", new { area = "" }, new { @class = "glyphicon glyphicon-book" })</li>
+                    <li>@Html.ActionLink(" Contact", "navContact", "ThongDong", new { area = "" }, new { @class = "glyphicon glyphicon-envelope" })</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_CartInfo")
+                    @{ if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    @User.Identity.Name
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        @Html.ActionLink("Info", "Info", "Accounts")
+                                    </li>
+                                    @{
+                                        ACCOUNT user = dBContext.ACCOUNTs.First(u => u.USERNAME == User.Identity.Name);
+                                        if (user.ACCOUNT_TYPE == "ADMIN")
+                                        {
+                                            <li><a href="@Url.Action("Index", "Maganement")">Maganement</a></li>
+                                        }
+                                    }
+                                    <li><a href="@Url.Action("Logout", "Accounts")">Log Out</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink(" Login", "Login", "Accounts", new { area = "" }, new { @class = "glyphicon glyphicon-log-in" })</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <h1>@ViewBag.Name</h1><br>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+
+            <div class="col-md-4">
+                @Html.Partial("_TourForm")
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    @RenderSection("Script", required: false)
+</body>
+</html>
+
+
+<footer class="container-fluid text-center">
+    <p>
+        &copy; @DateTime.Now.Year ThongDong Resort. All rights reserved.| <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">
+            Terms
+            of Service
+        </a>
+    </p>
+</footer>

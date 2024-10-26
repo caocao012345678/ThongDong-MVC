@@ -1,0 +1,60 @@
+﻿@model ThongDong_MVC.Models.ACCOUNT
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    ThongDong_MVC.Models.ThongDongDBContext dBContext = new ThongDong_MVC.Models.ThongDongDBContext();
+}
+
+<h2>Accounts</h2>
+
+
+<style>
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: 1px solid rgba(190, 190, 190, 0.5)
+    }
+
+    .quantity {
+        background: rgb(230 230 230 / 50%);
+        border-color: rgba(197, 197, 197, 0.5);
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    a {
+        color: #5a5a5a;
+    }
+
+    .button-form {
+        color: #5a5a5a !important;
+        width: 100%;
+    }
+</style>
+@{
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Role</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var acc in dBContext.ACCOUNTs)
+        {
+            <tr>
+                <td>@acc.USERNAME</td>
+                <td>@acc.ACCOUNT_TYPE</td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <a href="@Url.Action("DeleteAccount","Maganement", new {id = acc.ACCOUNT_ID})">Delete</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="@Url.Action("Account_Detail","Maganement", new {id = acc.ACCOUNT_ID})">Edit</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+}

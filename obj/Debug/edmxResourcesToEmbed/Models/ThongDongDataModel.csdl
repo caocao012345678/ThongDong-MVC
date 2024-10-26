@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="ACCOUNT_ID" />
+    </Key>
+    <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACCOUNT_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOKING_DETAIL" Relationship="Self.FK__BOOKING_D__ACCOU__33D4B598" FromRole="ACCOUNT" ToRole="BOOKING_DETAIL" />
+    <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK__FEEDBACK__ACCOUN__36B12243" FromRole="ACCOUNT" ToRole="FEEDBACK" />
+    <NavigationProperty Name="USER_ROLES_MAPPING" Relationship="Self.FK__USER_ROLE__UserI__3B75D760" FromRole="ACCOUNT" ToRole="USER_ROLES_MAPPING" />
+  </EntityType>
+  <EntityType Name="BOOKING">
+    <Key>
+      <PropertyRef Name="BOOKING_ID" />
+    </Key>
+    <Property Name="BOOKING_ID" Type="Int32" Nullable="false" />
+    <Property Name="QUANTITY_ADULT" Type="Int32" />
+    <Property Name="QUANTITY_CHILD" Type="Int32" />
+    <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BOOKING_DETAIL" Relationship="Self.FK__BOOKING_D__BOOKI__31EC6D26" FromRole="BOOKING" ToRole="BOOKING_DETAIL" />
+    <NavigationProperty Name="BOOKING_DETAIL_PEOPLE" Relationship="Self.FK__BOOKING_D__EMAIL__2F10007B" FromRole="BOOKING" ToRole="BOOKING_DETAIL_PEOPLE" />
+  </EntityType>
+  <EntityType Name="BOOKING_DETAIL">
+    <Key>
+      <PropertyRef Name="BOOKING_DETAIL_ID" />
+    </Key>
+    <Property Name="BOOKING_DETAIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="BOOKING_ID" Type="Int32" />
+    <Property Name="TOUR_ID" Type="Int32" />
+    <Property Name="BOOKING_PEOPLE" Type="Int32" />
+    <Property Name="ACCOUNT_ID" Type="Int32" />
+    <Property Name="START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="END_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRICE_CHILD" Type="Int32" />
+    <Property Name="PRICE_ADULT" Type="Int32" />
+    <Property Name="QUANTITY_ADULT" Type="Int32" />
+    <Property Name="QUANTITY_CHILD" Type="Int32" />
+    <Property Name="OTHER_REQUIREMENTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__BOOKING_D__ACCOU__33D4B598" FromRole="BOOKING_DETAIL" ToRole="ACCOUNT" />
+    <NavigationProperty Name="BOOKING" Relationship="Self.FK__BOOKING_D__BOOKI__31EC6D26" FromRole="BOOKING_DETAIL" ToRole="BOOKING" />
+    <NavigationProperty Name="TOUR" Relationship="Self.FK__BOOKING_D__TOUR___32E0915F" FromRole="BOOKING_DETAIL" ToRole="TOUR" />
+  </EntityType>
+  <EntityType Name="BOOKING_DETAIL_PEOPLE">
+    <Key>
+      <PropertyRef Name="BOOKING_DETAIL_PEOPLE_ID" />
+    </Key>
+    <Property Name="BOOKING_DETAIL_PEOPLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BOOKING_ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BOOKING" Relationship="Self.FK__BOOKING_D__EMAIL__2F10007B" FromRole="BOOKING_DETAIL_PEOPLE" ToRole="BOOKING" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="DESTINATION_ID" />
+    </Key>
+    <Property Name="DESTINATION_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TOURs" Relationship="Self.FK__TOUR__HTML__2C3393D0" FromRole="DESTINATION" ToRole="TOUR" />
+  </EntityType>
+  <EntityType Name="FEEDBACK">
+    <Key>
+      <PropertyRef Name="FEEDBACK_ID" />
+    </Key>
+    <Property Name="FEEDBACK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACCOUNT_ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FEEDBACK_DATE" Type="DateTime" Precision="0" />
+    <Property Name="FEEDBACK_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__FEEDBACK__ACCOUN__36B12243" FromRole="FEEDBACK" ToRole="ACCOUNT" />
+  </EntityType>
+  <EntityType Name="GUIDE">
+    <Key>
+      <PropertyRef Name="GUIDE_ID" />
+    </Key>
+    <Property Name="GUIDE_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HTML" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ROLE_MASTER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RollName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USER_ROLES_MAPPING" Relationship="Self.FK__USER_ROLE__RoleI__3C69FB99" FromRole="ROLE_MASTER" ToRole="USER_ROLES_MAPPING" />
+  </EntityType>
+  <EntityType Name="TOUR">
+    <Key>
+      <PropertyRef Name="TOUR_ID" />
+    </Key>
+    <Property Name="TOUR_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESTINATION_ID" Type="Int32" />
+    <Property Name="START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="END_DATE" Type="Int32" />
+    <Property Name="PRICE_CHILD" Type="Int32" />
+    <Property Name="PRICE_ADULT" Type="Int32" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HTML" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BOOKING_DETAIL" Relationship="Self.FK__BOOKING_D__TOUR___32E0915F" FromRole="TOUR" ToRole="BOOKING_DETAIL" />
+    <NavigationProperty Name="DESTINATION" Relationship="Self.FK__TOUR__HTML__2C3393D0" FromRole="TOUR" ToRole="DESTINATION" />
+  </EntityType>
+  <EntityType Name="USER_ROLES_MAPPING">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__USER_ROLE__UserI__3B75D760" FromRole="USER_ROLES_MAPPING" ToRole="ACCOUNT" />
+    <NavigationProperty Name="ROLE_MASTER" Relationship="Self.FK__USER_ROLE__RoleI__3C69FB99" FromRole="USER_ROLES_MAPPING" ToRole="ROLE_MASTER" />
+  </EntityType>
+  <Association Name="FK__BOOKING_D__ACCOU__33D4B598">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+    <End Role="BOOKING_DETAIL" Type="Self.BOOKING_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Principal>
+      <Dependent Role="BOOKING_DETAIL">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FEEDBACK__ACCOUN__36B12243">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+    <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Principal>
+      <Dependent Role="FEEDBACK">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USER_ROLE__UserI__3B75D760">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+    <End Role="USER_ROLES_MAPPING" Type="Self.USER_ROLES_MAPPING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Principal>
+      <Dependent Role="USER_ROLES_MAPPING">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOKING_D__BOOKI__31EC6D26">
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="0..1" />
+    <End Role="BOOKING_DETAIL" Type="Self.BOOKING_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOOKING">
+        <PropertyRef Name="BOOKING_ID" />
+      </Principal>
+      <Dependent Role="BOOKING_DETAIL">
+        <PropertyRef Name="BOOKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOKING_D__EMAIL__2F10007B">
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="0..1" />
+    <End Role="BOOKING_DETAIL_PEOPLE" Type="Self.BOOKING_DETAIL_PEOPLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOOKING">
+        <PropertyRef Name="BOOKING_ID" />
+      </Principal>
+      <Dependent Role="BOOKING_DETAIL_PEOPLE">
+        <PropertyRef Name="BOOKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOKING_D__TOUR___32E0915F">
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+    <End Role="BOOKING_DETAIL" Type="Self.BOOKING_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="TOUR_ID" />
+      </Principal>
+      <Dependent Role="BOOKING_DETAIL">
+        <PropertyRef Name="TOUR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TOUR__HTML__2C3393D0">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="0..1" />
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USER_ROLE__RoleI__3C69FB99">
+    <End Role="ROLE_MASTER" Type="Self.ROLE_MASTER" Multiplicity="1" />
+    <End Role="USER_ROLES_MAPPING" Type="Self.USER_ROLES_MAPPING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USER_ROLES_MAPPING">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThongDongDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+    <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
+    <EntitySet Name="BOOKING_DETAIL" EntityType="Self.BOOKING_DETAIL" />
+    <EntitySet Name="BOOKING_DETAIL_PEOPLE" EntityType="Self.BOOKING_DETAIL_PEOPLE" />
+    <EntitySet Name="DESTINATIONs" EntityType="Self.DESTINATION" />
+    <EntitySet Name="FEEDBACKs" EntityType="Self.FEEDBACK" />
+    <EntitySet Name="GUIDEs" EntityType="Self.GUIDE" />
+    <EntitySet Name="ROLE_MASTER" EntityType="Self.ROLE_MASTER" />
+    <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+    <EntitySet Name="USER_ROLES_MAPPING" EntityType="Self.USER_ROLES_MAPPING" />
+    <AssociationSet Name="FK__BOOKING_D__ACCOU__33D4B598" Association="Self.FK__BOOKING_D__ACCOU__33D4B598">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="BOOKING_DETAIL" EntitySet="BOOKING_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FEEDBACK__ACCOUN__36B12243" Association="Self.FK__FEEDBACK__ACCOUN__36B12243">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USER_ROLE__UserI__3B75D760" Association="Self.FK__USER_ROLE__UserI__3B75D760">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="USER_ROLES_MAPPING" EntitySet="USER_ROLES_MAPPING" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOKING_D__BOOKI__31EC6D26" Association="Self.FK__BOOKING_D__BOOKI__31EC6D26">
+      <End Role="BOOKING" EntitySet="BOOKINGs" />
+      <End Role="BOOKING_DETAIL" EntitySet="BOOKING_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOKING_D__EMAIL__2F10007B" Association="Self.FK__BOOKING_D__EMAIL__2F10007B">
+      <End Role="BOOKING" EntitySet="BOOKINGs" />
+      <End Role="BOOKING_DETAIL_PEOPLE" EntitySet="BOOKING_DETAIL_PEOPLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOKING_D__TOUR___32E0915F" Association="Self.FK__BOOKING_D__TOUR___32E0915F">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="BOOKING_DETAIL" EntitySet="BOOKING_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TOUR__HTML__2C3393D0" Association="Self.FK__TOUR__HTML__2C3393D0">
+      <End Role="DESTINATION" EntitySet="DESTINATIONs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USER_ROLE__RoleI__3C69FB99" Association="Self.FK__USER_ROLE__RoleI__3C69FB99">
+      <End Role="ROLE_MASTER" EntitySet="ROLE_MASTER" />
+      <End Role="USER_ROLES_MAPPING" EntitySet="USER_ROLES_MAPPING" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,119 @@
+﻿@using ThongDong_MVC.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<GUIDE>
+
+@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/guide.css">
+}
+
+@{
+    ViewBag.Title = "ThongDong - Guide";
+}
+<head>
+    <style>
+        h1 {
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<div id="myCarousel" class="carousel slide slideanim-top" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <a href="guide-Sapa.html">
+                <img src="~/Image/Sapa/10DSC-4991-1280-1546527332-998-6310-9622-1652148673.jpg" alt="">
+                <div class="carousel-caption">
+                    <h3>SaPa</h3>
+                </div>
+            </a>
+        </div>
+
+        <div class="item">
+            <a href="guide-PhuQuoc.html">
+                <img src="~/Image/PhuQuoc/dulichPhuQuoc-1649392573-9234-1649405369.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <h3>Phú Quốc</h3>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="guide-DaNang.html">
+                <img src="~/Image/DaNang/4-Cau-Rong-Han-Cau-Thuan-Phuoc-6049-1654169673.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <h3>Đà Nẵng</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<header>
+    <h1 class="slideanim-top">Cẩm nang du lịch</h1>
+</header>
+<section>
+    <div class="guide-container">
+        @foreach (var item in Model)
+        {
+            string img = Convert.ToString(item.GUIDE_ID) + ".jpg";
+            <div class="guide-card slideanim">
+                <a href="@Url.Action("guideDetails", new { id = item.GUIDE_ID })">
+                    <div class="guide-img">
+                        <img src="~/Image/Guide_img/@img">
+                    </div>
+                </a>
+                <div class="guide-details">
+                    <h3>@item.NAME</h3>
+                    <p class="scroll-content">
+                        @item.DESCRIPTION
+                    </p>
+                    <button class="toggleButton button-more">MORE</button><br><br>
+                    @Html.ActionLink("Đọc thêm", "guideDetails", new { id = item.GUIDE_ID }, new { @class = "tour-link" })
+                </div>
+            </div>
+        }
+    </div>
+    <div class="pagination" style="margin-left:45%">
+        @Html.PagedListPager(Model,page => Url.Action("navGuide", new {page = page}))
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

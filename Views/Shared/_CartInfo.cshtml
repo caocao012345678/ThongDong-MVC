@@ -1,0 +1,31 @@
+﻿@using ThongDong_MVC.Models
+<head>
+    <style>
+        .li {
+            position: absolute !important;
+            color: whitesmoke;
+            margin-top: 4px;
+            margin-left: 30px;
+            background: #706767;
+            border-radius: 50%;
+            padding: 8px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    </style>
+</head>
+@{
+    if (Session["Plan"] != null)
+    {
+        List<Plan> temp = (List<Plan>)Session["Plan"];
+        var count = temp.Count();
+        <li><a href="@Url.Action("Gio_Hang", "Plan")" class="glyphicon glyphicon-shopping-cart"></a></li>
+        <li class="li">@count</li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Gio_Hang", "Plan")" class="glyphicon glyphicon-shopping-cart"></a></li>
+        <li class="li">0</li>
+    }
+
+}

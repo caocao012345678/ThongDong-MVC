@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+}
+<style>
+    .card {
+        min-height: 100px;
+    }
+</style>
+<h2>Dashboard</h2>
+<br />
+<div class="row">
+    <div class="col-sm-6 col-lg-2">
+        <a href="@Url.Action("Account")">
+            <div class="card mb-4 text-white bg-primary">
+                <div class="card-body text-center">
+                    <div style="font-size: 120%">
+                        <div class="fs-4">@ViewBag.Accounts</div>
+                        <div>Accounts</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+        <a href="@Url.Action("OderProcess")">
+            <div class="card mb-4 text-white bg-primary">
+                <div class="card-body text-center">
+                    <div style="font-size: 120%">
+                        <div class="fs-4">@ViewBag.Oders</div>
+                        <div>Oders</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+        <a href="@Url.Action("OderProcess")">
+            <div class="card mb-4 text-white bg-primary">
+                <div class="card-body text-center">
+                    <div style="font-size: 120%">
+                        <div class="fs-4">@ViewBag.People</div>
+                        <div>People in tour</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+        <a href="@Url.Action("Tours")">
+            <div class="card mb-4 text-white bg-primary">
+                <div class="card-body text-center">
+                    <div style="font-size: 120%">
+                        <div class="fs-4">@ViewBag.Tours</div>
+                        <div>Tours</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+        <div class="card mb-4 text-white bg-primary">
+            <div class="card-body text-center">
+                <div style="font-size: 120%">
+                    <div class="fs-4">@ViewBag.Guides</div>
+                    <div>Guides</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+        <a href="@Url.Action("Feedback")">
+            <div class="card mb-4 text-white bg-primary">
+                <div class="card-body text-center">
+                    <div style="font-size: 120%">
+                        <div class="fs-4">@ViewBag.Feedback</div>
+                        <div>Feedbacks</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+

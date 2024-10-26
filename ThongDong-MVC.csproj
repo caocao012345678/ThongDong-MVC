@@ -1,0 +1,799 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BBA88982-C2D2-4894-838D-72C5F7854E3F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThongDong_MVC</RootNamespace>
+    <AssemblyName>ThongDong-MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Image\admin.jpg" />
+    <Content Include="Image\CT-CN-MCM\ivivu-canh-dong-quat-gio-bac-lieu-9.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-cho-noi-cai-rang-1.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-chua-som-rong-soc-trang.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-cu-lao-thoi-son-tien-giang.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-cua-ca-mau.jpg" />
+    <Content Include="Image\CT-CN-MCM\ivivu-cuoc-song-ca-mau-750x390.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-dat-mui-ca-mau.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-du-thuyen-can-tho-2.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-me-nam-hai.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-mui-ca-mau.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-nha-cong-tu-bac-lieu.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-thanh-duong-nha-tho-cha-diep.gif" />
+    <Content Include="Image\CT-CN-MCM\ivivu-vuon-trai-cay-can-tho.gif" />
+    <Content Include="Image\DaLat\1-6354-1650966119.jpg" />
+    <Content Include="Image\DaLat\11BuoisangbinhyenDoicohonghoDa-8476-1276-1650882782.jpg" />
+    <Content Include="Image\DaLat\12-Thong-dong-Doi-co-hong-ho-D-4621-9791-1650966119.jpg" />
+    <Content Include="Image\DaLat\4-1619515847-9834-1650966120.jpg" />
+    <Content Include="Image\DaLat\Dalat-VnExpress10-9042-1547564-5372-5866-1650966120.jpg" />
+    <Content Include="Image\DaLat\Dalat-VnExpress11-5366-1547564-1245-1597-1650966120.jpg" />
+    <Content Include="Image\DaLat\Dalat-VnExpress19-3428-1547564-1356-6582-1650966120.jpg" />
+    <Content Include="Image\DaLat\gadalat-vnexpress3-1539613410-4423-1650966119.jpg" />
+    <Content Include="Image\DaLat\huongchi-1602641889-3253-1650966120.jpg" />
+    <Content Include="Image\DaNang\4-Cau-Rong-Han-Cau-Thuan-Phuoc-6049-1654169673.jpg" />
+    <Content Include="Image\DaNang\Ban-dao-Son-Tra-Pham-Phung-2-J-5005-7025-1654151743.jpg" />
+    <Content Include="Image\DaNang\Ban-dao-Son-Tra-Pham-Phung-6-1-4537-5585-1654151744.jpg" />
+    <Content Include="Image\DaNang\Ban-dao-Son-Tra-Pham-Phung-8-J-9663-1318-1654151744.jpg" />
+    <Content Include="Image\DaNang\banh-trang-cuon-thit-heo-2-3918-1654169674.jpg" />
+    <Content Include="Image\DaNang\banh-trang-cuon-thit-heo-5718-1654169674.jpg" />
+    <Content Include="Image\DaNang\bao-tang-dieu-khac-cham-da-nan-4073-2523-1654169673.jpg" />
+    <Content Include="Image\DaNang\bao-tang-dieu-khac-cham-da-nan-4472-5327-1654169673.jpg" />
+    <Content Include="Image\DaNang\bao-tang-van-hoa-phat-giao-8400-1654169673.jpg" />
+    <Content Include="Image\DaNang\bun-mam-nem-9844-1654169674.jpg" />
+    <Content Include="Image\DaNang\bun-thit-nuong-1612-1654169674.jpg" />
+    <Content Include="Image\DaNang\Cau-Song-han-da-nang-5702-1654169673.jpg" />
+    <Content Include="Image\DaNang\Cau-Thuan-Phuoc-da-nang-8559-1654169673.jpg" />
+    <Content Include="Image\DaNang\Cau-Tran-Thi-Ly-da-nang-6742-1654169673.jpg" />
+    <Content Include="Image\DaNang\cau-vang-jpeg-9366-1654247848.jpg" />
+    <Content Include="Image\DaNang\CauVangDaNang-1654082224-7229-1654082320.jpg" />
+    <Content Include="Image\DaNang\cay-da-son-tra-da-nang-jpeg-7594-1654151744.jpg" />
+    <Content Include="Image\DaNang\cay-di-san-3-jpeg-5022-1654151745.jpg" />
+    <Content Include="Image\DaNang\cay-di-san-jpeg-2584-1654151745.jpg" />
+    <Content Include="Image\DaNang\cay-di-san-ngu-hanh-son-jpeg-9179-1654151745.jpg" />
+    <Content Include="Image\DaNang\cho-con-2-2582-1654169674.jpg" />
+    <Content Include="Image\DaNang\cho-con-3-2491-1654169674.jpg" />
+    <Content Include="Image\DaNang\cho-con-da-nang-2-6265-1654169674.jpg" />
+    <Content Include="Image\DaNang\cho-con-da-nang-5441-1654169674.jpg" />
+    <Content Include="Image\DaNang\cho-dem-da-nang-4582-1654169674.jpg" />
+    <Content Include="Image\DaNang\cung-van-hoa-thieu-nhi-Da-Nang-8200-1654169673.png" />
+    <Content Include="Image\DaNang\da-nang-1-4913-1654169672.jpg" />
+    <Content Include="Image\DaNang\da-nang-2-5992-1654169675.jpg" />
+    <Content Include="Image\DaNang\Da-Nang-4605-1654080409.jpg" />
+    <Content Include="Image\DaNang\Da-Nang-jpeg-8849-1654238180.jpg" />
+    <Content Include="Image\DaNang\deo-hai-van-jpeg-2870-1654151745.jpg" />
+    <Content Include="Image\DaNang\du-lich-Da-Nang-5058-1654080409.jpg" />
+    <Content Include="Image\DaNang\du-thuyen-da-nang-song-han-768-4824-2490-1654169674.png" />
+    <Content Include="Image\DaNang\ghenh-bang-2321-1654169672.jpg" />
+    <Content Include="Image\DaNang\gieng-troi-ba-na-nui-chua-da-n-3402-2134-1654169672.jpg" />
+    <Content Include="Image\DaNang\gieng-troi-ba-na-nui-chua-da-n-4755-7978-1654169672.jpg" />
+    <Content Include="Image\DaNang\goi-ca-9088-1654169674.jpg" />
+    <Content Include="Image\DaNang\hem-bich-hoa-da-nang-7226-1654169673.jpg" />
+    <Content Include="Image\DaNang\ho-hoa-trung-da-nang-3583-1654169672.jpg" />
+    <Content Include="Image\DaNang\hoa-bac-da-nang-3164-1654169672.jpg" />
+    <Content Include="Image\DaNang\khach-san-da-nang-3958-1654169672.jpg" />
+    <Content Include="Image\DaNang\Lang-chieu-cam-ne-5421-1654169672.jpg" />
+    <Content Include="Image\DaNang\lang-da-my-nghe-non-nuoc-7499-1654169672.jpg" />
+    <Content Include="Image\DaNang\mi-quang-1325-1654169674.jpg" />
+    <Content Include="Image\DaNang\mit-tron-da-nang-3894-1654169675.jpg" />
+    <Content Include="Image\DaNang\My-Khe-Da-Nang-2450-1654169673.jpg" />
+    <Content Include="Image\DaNang\nem-lui-5441-1654169674.jpg" />
+    <Content Include="Image\DaNang\ngu-hanh-son-2-jpeg-7185-1654151745.jpg" />
+    <Content Include="Image\DaNang\ngu-hanh-son-jpeg-8049-1654151745.jpg" />
+    <Content Include="Image\DaNang\nha-tho-chinh-toa-da-nang-7191-1654169673.jpg" />
+    <Content Include="Image\DaNang\oc-hut-da-nang-6765-1654169675.jpg" />
+    <Content Include="Image\DaNang\Ran-Nam-O-5265-1654169672.jpg" />
+    <Content Include="Image\DaNang\Son-Tra-2238-1654169672.jpg" />
+    <Content Include="Image\DaNang\sua-chua-muoi-4152-1654169675.jpg" />
+    <Content Include="Image\DaNang\tau-hoa-6702-1654080409.jpg" />
+    <Content Include="Image\DaNang\thac-may-tai-deo-hai-van-gay-sot-1643254575.jpg" />
+    <Content Include="Image\DaNang\trai-nghiem-ngam-da-nang-tu-truc-thang-1651383699.jpg" />
+    <Content Include="Image\DaNang\tuong-Laskmindra-Lokeshvara-Ta-3651-3208-1654169673.jpg" />
+    <Content Include="Image\DaNang\vooc-son-tra-jpeg-7822-1654151744.jpg" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-bai-tranh.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-chua-long-son.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-da-lat-750x390.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-datanla.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-nha-trang-cathedral.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-thien-vien-truc-lam-da-lat-05.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-tour-nha-trang-4n3d-nha-trang-binh-ba-thap-ba-ponagar.jpg" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-vinh-san-ho.gif" />
+    <Content Include="Image\DL-NT-TPHB\ivivu-vinpearl-nha-trang.gif" />
+    <Content Include="Image\Guide_img\1.jpg" />
+    <Content Include="Image\Guide_img\2.jpg" />
+    <Content Include="Image\Guide_img\3.jpg" />
+    <Content Include="Image\Guide_img\4.jpg" />
+    <Content Include="Image\Guide_img\5.jpg" />
+    <Content Include="Image\Guide_img\6.jpg" />
+    <Content Include="Image\Guide_img\7.jpg" />
+    <Content Include="Image\HCM-GW-CC\ivivu-bai-sao.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-dinh-cau-phu-quoc.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-grand-world-pq.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-grand-world-xe-dap-750x390.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-lan-ngam-san-ho1.jpg" />
+    <Content Include="Image\HCM-GW-CC\ivivu-ngoc-trai-cao-cap.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-nha-thung-nuoc-mam.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-nha-tu-phu-quoc-1.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-safari-phu-quoc.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-vinwonder-disneyland.gif" />
+    <Content Include="Image\HCM-GW-CC\ivivu-vuon-tieu.jpg" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-canh-dong-hoa-cai-750x390.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-chua-tran-quoc.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-cot-co-lung-cu.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-cot-km0.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-deo-ma-pi-leng.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-dinh-thu-vua-meo.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-ho-guom.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-nui-doi-co-tien.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-pho-cao.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-pho-co-dong-van.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-song-nho-que.gif" />
+    <Content Include="Image\HCM-HN-HG-HTG\ivivu-sung-la.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-3-bai-ky-co-750x390.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-6-chua-thanh-luong.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-7-chua-thien-hung.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-8-tinh-xa-ngoc-hoa.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-bai-tam-ky-co-qn.jpg" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-bai-xep-py.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-bao-tang-quang-trung-quy-nhon.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-eo-gio.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-ganh-da-dia.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-ghenh-rang-tien-sa-1.jpg" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-nha-tho-mang-lang.gif" />
+    <Content Include="Image\HCM-KC-EG-PY\ivivu-thap-doi.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-bao-tang-trung-bay-ly-son.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-bien-ky-co.jpg" />
+    <Content Include="Image\HCM-QN-LS\ivivu-chua-ong-nui-quy-nhon.jpg" />
+    <Content Include="Image\HCM-QN-LS\ivivu-chua-thien-hung-quy-nhon.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-cong-to-vo.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-dao-be.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-eo-gio.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-ghenh-rang-tien-sa.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-hang-cau.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-nui-gieng-tien.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-tau-lua-2-750x390.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-thoi-loi-ly-son2.gif" />
+    <Content Include="Image\HCM-QN-LS\ivivu-tour-ly-son-4n3d-dao-be-vuong-quoc-toi-chua-hang.jpg" />
+    <Content Include="Image\HN-NB-VHL\ivivu-bai-chay.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-bai-dinh.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-bien-bai-chay.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-hang-sung-sot-1.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-hon-cho-da.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-kdl-trang-an-2.gif" />
+    <Content Include="Image\HN-NB-VHL\ivivu-tour-mien-bac-3n2d-hanoi-halong-hanoi-cheo-thuyen-kaya-tren-vinh-ha-long-1.jpg" />
+    <Content Include="Image\HT-PT-MN\ivivu-cong-vien-circus-land.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-giai-tri-tropicana-park.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-ho-tram-bia-750x390.jpg" />
+    <Content Include="Image\HT-PT-MN\ivivu-lang-chai-xua-mui-ne.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-ngon-hai-dang-phan-thiet.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-nhac-nuoc-fishermen-show.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-xe-jeep-bau-trang.gif" />
+    <Content Include="Image\HT-PT-MN\ivivu-xe-limousine.gif" />
+    <Content Include="Image\hue\banahill.jpg" />
+    <Content Include="Image\hue\Bà-Nà-2-700x700.jpg" />
+    <Content Include="Image\hue\cau-rong.jpg" />
+    <Content Include="Image\hue\chualinhungsontra.jpg" />
+    <Content Include="Image\hue\chùa thiên mụ .jpg" />
+    <Content Include="Image\hue\dainoi.jpg" />
+    <Content Include="Image\hue\dainoi1.jpg" />
+    <Content Include="Image\hue\hangdongphongnha.jpg" />
+    <Content Include="Image\hue\KDCyar4c-pho-co-hoi-an-thumb-1.jpg" />
+    <Content Include="Image\hue\lang-khai-dinh-doc-dao.jpg" />
+    <Content Include="Image\hue\lang-khai-dinh.jpg" />
+    <Content Include="Image\hue\Langco.jpg" />
+    <Content Include="Image\hue\pha--dam-chuon.png" />
+    <Content Include="Image\hue\pho-co-hoi-an-11-1.jpg" />
+    <Content Include="Image\hue\phongnhajpg148513755_1513825456_1580696278.jpg" />
+    <Content Include="Image\LangCo\A1-8388-1689668265.jpg" />
+    <Content Include="Image\LangCo\A2-8611-1689668265.jpg" />
+    <Content Include="Image\LangCo\B1-3126-1689668265.jpg" />
+    <Content Include="Image\LangCo\B2-7595-1689668265.jpg" />
+    <Content Include="Image\LangCo\BM1-9847-1689668265.jpg" />
+    <Content Include="Image\LangCo\BM2-2445-1689668265.jpg" />
+    <Content Include="Image\LangCo\BM3-5342-1689668266.jpg" />
+    <Content Include="Image\LangCo\BM4-2127-1689668266.jpg" />
+    <Content Include="Image\LangCo\BM5-3155-1689668266.jpg" />
+    <Content Include="Image\LangCo\cauvom1-9426-1689668266.jpg" />
+    <Content Include="Image\LangCo\haisan-1292-1689668266.jpg" />
+    <Content Include="Image\LangCo\haisanbethan-7299-1689668266.jpg" />
+    <Content Include="Image\LangCo\haisanlapan-3147-1689668267.jpg" />
+    <Content Include="Image\LangCo\LA1-3833-1689668266.jpg" />
+    <Content Include="Image\LangCo\LA2-6840-1689668266.jpg" />
+    <Content Include="Image\LangCo\LA3-4196-1689668266.jpg" />
+    <Content Include="Image\LangCo\Langco1-8400-1689668265-9277-1689904738.jpg" />
+    <Content Include="Image\LangCo\Langco2-7636-1689668266.jpg" />
+    <Content Include="Image\LangCo\Langco3-1689666890-7070-1689668267.jpg" />
+    <Content Include="Image\LangCo\LC1-9039-1689653887.jpg" />
+    <Content Include="Image\LangCo\LC2-5674-1689653887.jpg" />
+    <Content Include="Image\LangCo\LC4-2803-1689653887.jpg" />
+    <Content Include="Image\LangCo\LC5-5086-1689668265.jpg" />
+    <Content Include="Image\LanHa\Lan-Ha1-2645-1691053870.jpg" />
+    <Content Include="Image\LanHa\Lan-Ha3-9430-1691054984.jpg" />
+    <Content Include="Image\LanHa\LH2-2926-1691125737.jpg" />
+    <Content Include="Image\LanHa\Tudo1-7146-1691060179.jpg" />
+    <Content Include="Image\Logo-radius.png" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-bien-ho-gia-lai.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-cau-kon-klor-kon-tum.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-chua-minh-thanh.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-cua-khau-quoc-te-bo-y.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-duc-me-mang-den.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-khu-du-lich-thac-pa-si.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-mang-den.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-mon-goi-la-tay-nguyen.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-nga-ba-dong-duong.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-nha-rong-kon-klor.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-nha-tho-go-kon-tum.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-rung-thong-tram-tuoi.jpg" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-tet-truyen-thong-tay-nguyen-750x390.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-toa-giam-muc-kon-tum.gif" />
+    <Content Include="Image\MD-N3DD-KBY\ivivu-van-hoa-tay-nguyen.gif" />
+    <Content Include="Image\NhaTrang\173068684-2893-1594206894-8350-4119-1917-1652070683.jpg" />
+    <Content Include="Image\NhaTrang\173068995-8876-1594206894-9103-6391-6151-1652070683.jpg" />
+    <Content Include="Image\NhaTrang\173835041-2837-1594206894-1866-4279-3818-1652070684.jpg" />
+    <Content Include="Image\NhaTrang\amiana-resort-nha-trang-2087-1-9439-2178-1652070682.jpg" />
+    <Content Include="Image\NhaTrang\Baotang-Haiduonghoc-04-1563376-6162-7577-1652070691.jpg" />
+    <Content Include="Image\NhaTrang\Baotang-Haiduonghoc-07-1563376-2993-8500-1652070692.jpg" />
+    <Content Include="Image\NhaTrang\Baotang-Haiduonghoc-08-1563376-6541-8886-1652070692.jpg" />
+    <Content Include="Image\NhaTrang\Baotang-Haiduonghoc-10-1563376-6032-5513-1652070693.jpg" />
+    <Content Include="Image\NhaTrang\Baotang-Haiduonghoc-12-1563376-7538-5132-1652070694.jpg" />
+    <Content Include="Image\NhaTrang\cam-trai-nui-Co-Tien-jpeg-1211-8617-8255-1652070697.jpg" />
+    <Content Include="Image\NhaTrang\hon-Chong-Nha-Trang-jpeg-2200-6985-2386-1652070688.jpg" />
+    <Content Include="Image\NhaTrang\IMG-0583-1402306364-3056-15942-3422-6106-1652070695.jpg" />
+    <Content Include="Image\NhaTrang\Nha-Trang-jpeg-5381-1648888240-7146-1652070688.jpg" />
+    <Content Include="Image\NhaTrang\NhaTrangKhanhHoa-1648888103-7869-1648888250.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1166244838-5343-1-5416-8866-1652070687.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1197743989-5365-1-6305-8972-1652070689.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1231321951-2357-1-3538-3136-1652070689.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1269026593-4883-1-2974-2274-1652070697.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1269026599-6954-1-1161-6455-1652070698.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1290453895-6062-1-8041-6340-1652070687.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-1556265590-3280-1-8521-2505-1652070691.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-280926449-6744-15-3483-9174-1652070682.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-370295597-9538-15-8518-9027-1652070685.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-573753865-9585-15-7491-1367-1652070690.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-702039541-3057-15-4768-2203-1652070686.jpg" />
+    <Content Include="Image\NhaTrang\shutterstock-702039541-5446-15-8264-5449-1652070685.jpg" />
+    <Content Include="Image\NhaTrang\Thap-ba-Nha-Trang-jpeg-1404-16-8357-1596-1652070695.jpg" />
+    <Content Include="Image\NhaTrang\thap-ba-Nha-Trang-jpeg-6359-16-4839-2972-1652070696.jpg" />
+    <Content Include="Image\NhaTrang\thap-ba-ponagar-jpeg-7743-1648-4105-7327-1652070695.jpg" />
+    <Content Include="Image\phanthiet\ivivu-ngon-hai-dang-phan-thiet.gif" />
+    <Content Include="Image\phanthiet\Nhatrang.jpg" />
+    <Content Include="Image\phanthiet\Phu-Quoc-Background.png" />
+    <Content Include="Image\phanthiet\Phu_Quy.jpg" />
+    <Content Include="Image\phanthiet\Phu_Yen_background.jpg" />
+    <Content Include="Image\phanthiet\sapagjpg-1650961085.jpg" />
+    <Content Include="Image\phanthiet\Ta-Pao-background.jpg" />
+    <Content Include="Image\PhuQuoc\170a994a0df5f7abaee4-6409-1590-6109-7838-1649405362.jpg" />
+    <Content Include="Image\PhuQuoc\3243dd4b49f4b3aaeae5-8843-1590-5624-7436-1649405363.jpg" />
+    <Content Include="Image\PhuQuoc\4-1590109526-3069-1590903610-2189-1649405361.jpg" />
+    <Content Include="Image\PhuQuoc\5b1d951e01a1fbffa2b0-1437-1590-2647-1739-1649405364.jpg" />
+    <Content Include="Image\PhuQuoc\be-be-Phu-Quoc-8660-1649405365.jpg" />
+    <Content Include="Image\PhuQuoc\bun-ken-Phu-Quoc-5904-1649405366.jpg" />
+    <Content Include="Image\PhuQuoc\Cho-dem-Phu-Quoc-1571651260-43-6167-2175-1649405357.jpg" />
+    <Content Include="Image\PhuQuoc\Cho-dem-Phu-Quoc-Vnexpress1-15-6178-7682-1649405359.jpg" />
+    <Content Include="Image\PhuQuoc\Cho-dem-Phu-Quoc-Vnexpress6-15-6032-9991-1649405360.jpg" />
+    <Content Include="Image\PhuQuoc\coi-Phu-Quoc-6216-1649405365.jpg" />
+    <Content Include="Image\PhuQuoc\cong-vien-nhot-nguoi-tha-thu-o-phu-quoc-1621424702.jpg" />
+    <Content Include="Image\PhuQuoc\du-lich-Phu-Quoc-02-5022-1649405369.jpg" />
+    <Content Include="Image\PhuQuoc\du-lich-Phu-Quoc-03-1254-1649405349.jpg" />
+    <Content Include="Image\PhuQuoc\dulichPhuQuoc-1649392573-9234-1649405369.jpg" />
+    <Content Include="Image\PhuQuoc\ghe-ham-Ninh-1658-1649405365.jpg" />
+    <Content Include="Image\PhuQuoc\Goi-ca-trich-Phu-Quoc-1159-1649405365.jpg" />
+    <Content Include="Image\PhuQuoc\Hem-Tu-San-Song-Nho-Que-1-7538-9843-5741-1649405361.png" />
+    <Content Include="Image\PhuQuoc\Hem-Tu-San-Song-Nho-Que-4548-1-3116-7786-1649405354.png" />
+    <Content Include="Image\PhuQuoc\IMG-0953-3978-1590903613-9033-1649405366.jpg" />
+    <Content Include="Image\PhuQuoc\IMG-0959-3523-1590903614-8868-1649405368.jpg" />
+    <Content Include="Image\PhuQuoc\IMG-0960-6271-1590903613-9025-1649405367.jpg" />
+    <Content Include="Image\PhuQuoc\Phu-Quoc-9226-1649405350.jpg" />
+    <Content Include="Image\PhuQuoc\Phu-Quoc-VnExpress-4888-1649405365.jpg" />
+    <Content Include="Image\PhuQuoc\Phu-Quoc-VnExpress-bao-ngu-8229-1649405366.jpg" />
+    <Content Include="Image\PhuQuoc\Phu-Quoc-VnExpress-Dinh-Cau-8313-1649405357.jpg" />
+    <Content Include="Image\PhuQuoc\shutterstock-1492074758-1641-1-7552-3298-1649405356.jpg" />
+    <Content Include="Image\PhuQuoc\shutterstock-1528713263-5275-1-9438-7316-1649405357.jpg" />
+    <Content Include="Image\PhuQuoc\shutterstock-1740575423-5596-1-2263-6072-1649405355.jpg" />
+    <Content Include="Image\PhuQuoc\shutterstock-191466686-2286-15-3897-5114-1649405350.jpg" />
+    <Content Include="Image\PhuQuoc\Thiet-ke-khong-ten-9-6801-1590-8349-6128-1649405351.png" />
+    <Content Include="Image\PhuQuoc\VINPEARL-SAFARI-PHU-QUOC-63-85-4013-3799-1649405352.jpg" />
+    <Content Include="Image\PhuQuoc\VINPEARL-SAFARI-PHU-QUOC-94-45-3469-6265-1649405353.jpg" />
+    <Content Include="Image\PhuQuoc\vuon-tieu-Phu-Quoc-4977-1649405369.jpg" />
+    <Content Include="Image\Places\background-binh-minh-tren-da-lat_034627422.jpg" />
+    <Content Include="Image\Places\bai_bien_phu_yen_gonatour.jpg" />
+    <Content Include="Image\Places\bien-phan-thiet.jpg" />
+    <Content Include="Image\Places\dalat-show.jpg" />
+    <Content Include="Image\Places\danang-show.jpg" />
+    <Content Include="Image\Places\Hinh-anh-dao-Phu-Quoc-dep-nhat.jpg" />
+    <Content Include="Image\Places\nhatrang-show.jpg" />
+    <Content Include="Image\Places\phanthiet-show.jpg" />
+    <Content Include="Image\Places\phuquoc-show.jpg" />
+    <Content Include="Image\Places\phuyen-show.jpg" />
+    <Content Include="Image\Places\Quy-nhon.jpg" />
+    <Content Include="Image\Places\quynhon-show.jpg" />
+    <Content Include="Image\Places\vinpearl-resort-nha-trang-1_1629094945.jpg" />
+    <Content Include="Image\Places\vungtau-show.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-banh-canh-tom-hum.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-bikini-beach-1.gif" />
+    <Content Include="Image\PT-NDCMR\ivivu-centara-mirage-mui-ne-5-sao.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-dac-san.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-khach-san-movenpik.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-khu-vui-choi-centara-mirage-resort-mui-ne.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-lang-chai-mui-ne-1.gif" />
+    <Content Include="Image\PT-NDCMR\ivivu-lang-chai-mui-ne-750x390.jpg" />
+    <Content Include="Image\PT-NDCMR\ivivu-nhac-nuoc-fishermen-show.gif" />
+    <Content Include="Image\PT-NDCMR\ivivu-resort-centara-mirage-mui-ne-5-sao.jpg" />
+    <Content Include="Image\QN-PY\ganh-da-dia-750x390.jpg" />
+    <Content Include="Image\QN-PY\ivivu-bai-xep.gif" />
+    <Content Include="Image\QN-PY\ivivu-bien-ky-co.jpg" />
+    <Content Include="Image\QN-PY\ivivu-dam-o-loan-hh.gif" />
+    <Content Include="Image\QN-PY\ivivu-doi-cat-phuong-mai.gif" />
+    <Content Include="Image\QN-PY\ivivu-eo-gio.gif" />
+    <Content Include="Image\QN-PY\ivivu-ghenh-da-dia-16.jpg" />
+    <Content Include="Image\QN-PY\ivivu-khu-du-lich-ghenh-rang.jpg" />
+    <Content Include="Image\QN-PY\ivivu-nha-tho-mang-lang.jpg" />
+    <Content Include="Image\QN-PY\ivivu-thap-doi1.gif" />
+    <Content Include="Image\QN-PY\ivivu-tuong-dai-nguyen-sinh-sac.gif" />
+    <Content Include="Image\Sapa\10DSC-4991-1280-1546527332-998-6310-9622-1652148673.jpg" />
+    <Content Include="Image\Sapa\ca-hoi-sa-pa-2308-1650453166-3007-1652148674.jpg" />
+    <Content Include="Image\Sapa\ca-phe-Sa-Pa-2-6381-1650277620-5806-1652148677.jpg" />
+    <Content Include="Image\Sapa\ca-phe-Sa-Pa-7328-1650277620-4844-1652148676.jpg" />
+    <Content Include="Image\Sapa\dulichSaPa-1650268886-1480-1650277620.png" />
+    <Content Include="Image\Sapa\fansipan-2-9450-1650277616-1286-1652148668.png" />
+    <Content Include="Image\Sapa\fansipan-3-6153-1650277616-1555-1652148669.png" />
+    <Content Include="Image\Sapa\fansipan-4-4120-1650277616-6919-1652148667.png" />
+    <Content Include="Image\Sapa\fansipan-6-3221-1650277616-6746-1652148667.png" />
+    <Content Include="Image\Sapa\ho-seo-my-ty-3-2209-1650277745-7687-1652148670.jpg" />
+    <Content Include="Image\Sapa\ho-seo-my-ty-8158-1650277745-5481-1652148671.jpg" />
+    <Content Include="Image\Sapa\homestay-Sa-Pa-9082-1650277615-9417-1652148660.jpg" />
+    <Content Include="Image\Sapa\kinh-nghiem-du-lich-sapa-tu-tu-9004-8634-1652148672.jpg" />
+    <Content Include="Image\Sapa\nha-tho-Sa-Pa-8314-1650277973-8345-1652148664.jpg" />
+    <Content Include="Image\Sapa\nui-ham-rong-6.jpg" />
+    <Content Include="Image\Sapa\O-Quy-Ho-VnExpress-7011-159109-3892-5311-1652148672.jpg" />
+    <Content Include="Image\Sapa\Quang-truong-Sa-Pa-3734-165027-5258-5864-1652148665.jpg" />
+    <Content Include="Image\Sapa\ruong-mam-xoi.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-1958-1650277615-8115-1652148662.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-2-9248-1650277614-1549-1652148658.png" />
+    <Content Include="Image\Sapa\Sa-Pa-231-7955-1650277615-7774-1652148662.png" />
+    <Content Include="Image\Sapa\sa-pa-8563-1650453166-8643-1652148675.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-Cat-Cat-8705-1650277615-1379-1652148661.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-mai-anh-dao-8046-1650277-6665-2702-1652148656.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-mua-he-2695-1650277614-2418-1652148657.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-nuong-8778-1650453384-1625-1652148676.jpg" />
+    <Content Include="Image\Sapa\Sa-Pa-Topas-1828-1650277615-2663-1652148663.jpg" />
+    <Content Include="Image\Sapa\san-tuyet-Sa-Pa-8336-165027761-1851-5413-1652148659.jpg" />
+    <Content Include="Image\Sapa\sapa-4673-1650453166-7473-1652148675.jpg" />
+    <Content Include="Image\Sapa\Silk-Path-Sa-Pa-2531-165027761-6694-4540-1652148660.jpg" />
+    <Content Include="Image\Sapa\Swing-Sa-Pa-4135-1650277616-8559-1652148670.jpg" />
+    <Content Include="Image\Sapa\Ta-Van-Sa-Pa-2-4584-1650277616-2850-1652148666.jpg" />
+    <Content Include="Image\Sapa\Ta-Van-Sa-Pa-8466-1650277615-2110-1652148665.jpg" />
+    <Content Include="Image\Sapa\xe-may-Sa-Pa-4073-1650277614-4473-1652148659.jpg" />
+    <Content Include="Image\ThongDong_Logo.png" />
+    <Content Include="Image\Tour_img\1.png" />
+    <Content Include="Image\Tour_img\10.png" />
+    <Content Include="Image\Tour_img\11.png" />
+    <Content Include="Image\Tour_img\12.png" />
+    <Content Include="Image\Tour_img\13.png" />
+    <Content Include="Image\Tour_img\2.png" />
+    <Content Include="Image\Tour_img\3.png" />
+    <Content Include="Image\Tour_img\4.png" />
+    <Content Include="Image\Tour_img\5.png" />
+    <Content Include="Image\Tour_img\6.png" />
+    <Content Include="Image\Tour_img\7.png" />
+    <Content Include="Image\Tour_img\8.png" />
+    <Content Include="Image\Tour_img\9.png" />
+    <Content Include="Image\video-backround\waves.mp4" />
+    <Content Include="Image\vinhhalong\119218817662774954346470407058-1806-5581-1647597051.jpg" />
+    <Content Include="Image\vinhhalong\2-5.jpg" />
+    <Content Include="Image\vinhhalong\baichay.jpg" />
+    <Content Include="Image\vinhhalong\BANCATCATjpg.jpg" />
+    <Content Include="Image\vinhhalong\cheokayak.jpg" />
+    <Content Include="Image\vinhhalong\chuabaidinhninhbinh.jpg" />
+    <Content Include="Image\vinhhalong\congvienhalong.jpg" />
+    <Content Include="Image\vinhhalong\congviennuochalong.jpg" />
+    <Content Include="Image\vinhhalong\dao-soi-sim---_1628248499.jpg" />
+    <Content Include="Image\vinhhalong\fansipan.jpg" />
+    <Content Include="Image\vinhhalong\Halongbay.jpg" />
+    <Content Include="Image\vinhhalong\hangsungsot.jpg" />
+    <Content Include="Image\vinhhalong\hangsungsot1.jpg" />
+    <Content Include="Image\vinhhalong\hon-ga-choi.jpg" />
+    <Content Include="Image\vinhhalong\honchoda.jpg" />
+    <Content Include="Image\vinhhalong\hontrongmai.jpg" />
+    <Content Include="Image\vinhhalong\images.jpg" />
+    <Content Include="Image\vinhhalong\khudulichhamrong.jpg" />
+    <Content Include="Image\vinhhalong\Noimage4.jpg" />
+    <Content Include="Image\vinhhalong\pexels-foc-foodoncam-58597.jpg" />
+    <Content Include="Image\vinhhalong\pexels-quang-nguyen-vinh-6877769.jpg" />
+    <Content Include="Image\vinhhalong\pexels-rachel-claire-7276651.jpg" />
+    <Content Include="Image\vinhhalong\post_vinh-ha-long-054559201019.jpg" />
+    <Content Include="Image\vinhhalong\vhl.jpg" />
+    <Content Include="Image\vinhhalong\vinh-ha-long.jpg" />
+    <Content Include="Image\vinhhalong\Vịnh Hạ Long.jpg" />
+    <Content Include="Image\VungTau\Bach-Dinh-Vung-Tau-jpeg-8955-1-3619-6940-1656726931.jpg" />
+    <Content Include="Image\VungTau\Bai-Truoc-Vung-Tau-jpeg-4282-1-7949-8853-1656726927.jpg" />
+    <Content Include="Image\VungTau\banh-khot-jpeg-5006-1655458319-6132-1656726934.jpg" />
+    <Content Include="Image\VungTau\banh-mi-cha-ca-2-jpeg-9166-165-1909-3263-1656726936.jpg" />
+    <Content Include="Image\VungTau\banh-mi-cha-ca-jpeg-6360-16554-6719-8322-1656726935.jpg" />
+    <Content Include="Image\VungTau\banh-mi-vung-tau-jpeg-4129-165-9724-6893-1656726936.jpg" />
+    <Content Include="Image\VungTau\bao-tang-vu-khi-vung-tau-6764-5202-3561-1656726931.png" />
+    <Content Include="Image\VungTau\bien-vung-tau-jpeg-2320-165545-5919-1133-1656726932.jpg" />
+    <Content Include="Image\VungTau\ca-phe-jpeg-6359-1655458319-7837-1656726936.jpg" />
+    <Content Include="Image\VungTau\cho-hai-san-xom-luoi-jpeg-3116-3090-2179-1656726932.jpg" />
+    <Content Include="Image\VungTau\cong-troi-vung-tau-jpeg-7063-1-1833-1186-1656726928.jpg" />
+    <Content Include="Image\VungTau\cuoi-tuan-xem-dua-cho-toc-do-o-vung-tau-1611592824.jpg" />
+    <Content Include="Image\VungTau\dao-go-gang-2-jpeg-8180-165545-9536-1282-1656726927.jpg" />
+    <Content Include="Image\VungTau\dao-ngoc-jpeg-6133-1655458317-4487-1656726928.jpg" />
+    <Content Include="Image\VungTau\doi-con-heo-jpeg-7584-16554583-2122-5053-1656726929.jpg" />
+    <Content Include="Image\VungTau\Duong-ven-bien-Vung-Tau-Binh-C-2835-2431-1656726926.jpg" />
+    <Content Include="Image\VungTau\hai-dang-vung-tau-5969-1655458-9414-1547-1656726930.png" />
+    <Content Include="Image\VungTau\Hem-107-109-Tran-Phu-jpeg-6968-5315-9521-1656726932.jpg" />
+    <Content Include="Image\VungTau\hem-tran-phu-vung-tau-jpeg-807-7471-2756-1656726933.jpg" />
+    <Content Include="Image\VungTau\lau-ca-duoi-7568-1655458319-6644-1656726934.png" />
+    <Content Include="Image\VungTau\lau-ca-duoi-jpeg-8620-16554583-7311-6855-1656726935.jpg" />
+    <Content Include="Image\VungTau\mui-nghinh-phong-1001-jpeg-730-1582-9668-1656726928.jpg" />
+    <Content Include="Image\VungTau\ngoi-mieu-khach-muon-den-phai-canh-gio-1611746859.jpg" />
+    <Content Include="Image\VungTau\nha-tho-vung-tau-jpeg-5707-165-5743-2387-1656726930.jpg" />
+    <Content Include="Image\VungTau\Thich-Ca-Phat-Dai-jpeg-5739-16-6094-5684-1656726930.jpg" />
+    <Content Include="Image\VungTau\tuong-chua-kito-jpeg-6996-1655-6544-2512-1656726929.jpg" />
+    <Content Include="Image\VungTau\vung-tau-02-jpeg-3464-16554583-9139-7330-1656726937.jpg" />
+    <Content Include="Image\VungTau\vungtau-1655378159-2899-1655379276.jpg" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-bai-dai-nt.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-bun-khoang-thap-ba.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-chua-long-son.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-nha-trang-bia-750x390.jpg" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-nha-trang-cathedral.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-nha-yen-nhatrang.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-thap-ba-ponagar.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-vinh-san-ho %281%29.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-vinh-san-ho.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-vinwonders-nha-trang.gif" />
+    <Content Include="Image\VW-DNVD-CT\ivivu-vinwonders.gif" />
+    <Content Include="Models\ThongDongDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ThongDongDataModel.edmx</DependentUpon>
+      <LastGenOutput>ThongDongDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ThongDongDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ThongDongDataModel.edmx</DependentUpon>
+      <LastGenOutput>ThongDongDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\coreui.bundle.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Styles\guide.css" />
+    <Content Include="Styles\places.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Styles\styleAdmin.css" />
+    <Content Include="Styles\tour.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\MaganementController.cs" />
+    <Compile Include="Controllers\PlanController.cs" />
+    <Compile Include="Controllers\ThongDongController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ACCOUNT.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BOOKING.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BOOKING_DETAIL.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BOOKING_DETAIL_PEOPLE.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DESTINATION.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FEEDBACK.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GUIDE.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Plan.cs" />
+    <Compile Include="Models\ROLE_MASTER.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThongDongDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongDongDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThongDongDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThongDongDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongDongDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TOUR.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersRoleProvider.cs" />
+    <Compile Include="Models\USER_ROLES_MAPPING.cs">
+      <DependentUpon>ThongDongDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Image\hue\cau-rong-da-nang-1.webp" />
+    <EntityDeploy Include="Models\ThongDongDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ThongDongDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ThongDongDataModel.edmx.diagram">
+      <DependentUpon>ThongDongDataModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\ThongDong\Index.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\ThongDong\guideDaLat.cshtml" />
+    <Content Include="Views\ThongDong\guideDaNang.cshtml" />
+    <Content Include="Views\ThongDong\guideLangCo.cshtml" />
+    <Content Include="Views\ThongDong\guideNhaTrang.cshtml" />
+    <Content Include="Views\ThongDong\guidePhuQuoc.cshtml" />
+    <Content Include="Views\ThongDong\guideSapa.cshtml" />
+    <Content Include="Views\ThongDong\guideVungTau.cshtml" />
+    <Content Include="Views\ThongDong\navAbout.cshtml" />
+    <Content Include="Views\ThongDong\navContact.cshtml" />
+    <Content Include="Views\ThongDong\navGuide.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\ThongDong\navTour.cshtml" />
+    <Content Include="Views\ThongDong\placesDaLat.cshtml" />
+    <Content Include="Views\ThongDong\placesDaNang.cshtml" />
+    <Content Include="Views\ThongDong\placesNhaTrang.cshtml" />
+    <Content Include="Views\ThongDong\placesPhanThiet.cshtml" />
+    <Content Include="Views\ThongDong\placesPhuQuoc.cshtml" />
+    <Content Include="Views\ThongDong\placesPhuYen.cshtml" />
+    <Content Include="Views\ThongDong\placesQuyNhon.cshtml" />
+    <Content Include="Views\ThongDong\placesVungTau.cshtml" />
+    <Content Include="Views\ThongDong\tour_CT_CN_MCM.cshtml" />
+    <Content Include="Views\ThongDong\tour_DaNang5N4D.cshtml" />
+    <Content Include="Views\ThongDong\tour_DL_NT_TPHB.cshtml" />
+    <Content Include="Views\ThongDong\tour_HCM_GW_CC.cshtml" />
+    <Content Include="Views\ThongDong\tour_HCM_HN_HG_HTG.cshtml" />
+    <Content Include="Views\ThongDong\tour_HCM_KC_EG_PY.cshtml" />
+    <Content Include="Views\ThongDong\tour_HCM_QN_LS.cshtml" />
+    <Content Include="Views\ThongDong\tour_HN_NB_VHL.cshtml" />
+    <Content Include="Views\ThongDong\tour_HT_PT_MN.cshtml" />
+    <Content Include="Views\ThongDong\tour_MD_N3DD_KBY.cshtml" />
+    <Content Include="Views\ThongDong\tour_PT_NDCMR.cshtml" />
+    <Content Include="Views\ThongDong\tour_QN_PY.cshtml" />
+    <Content Include="Views\ThongDong\tour_Sapa2N1D.cshtml" />
+    <Content Include="Views\ThongDong\tour_VW_DNVD_CT.cshtml" />
+    <Content Include="Views\ThongDong\guideDetails.cshtml" />
+    <Content Include="Views\ThongDong\tourDetails.cshtml" />
+    <Content Include="Views\Shared\_SearchForm.cshtml" />
+    <Content Include="Views\Shared\_CartInfo.cshtml" />
+    <Content Include="Views\Plan\Gio_Hang.cshtml" />
+    <Content Include="Views\Plan\CheckOut.cshtml" />
+    <Content Include="Views\Plan\OrderSuccess.cshtml" />
+    <Content Include="Views\Shared\_TourForm.cshtml" />
+    <Content Include="Views\Shared\_Layout_Tour_Detail.cshtml" />
+    <Content Include="Views\Plan\CheckOutInfomation.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout_Management.cshtml" />
+    <Content Include="Views\Maganement\Index.cshtml" />
+    <Content Include="Views\Maganement\Tours.cshtml" />
+    <Content Include="Views\Maganement\Tour_Detail.cshtml" />
+    <Content Include="Views\Maganement\Account.cshtml" />
+    <Content Include="Views\Maganement\OderProcess.cshtml" />
+    <Content Include="Views\Maganement\OderProcessDetail.cshtml" />
+    <Content Include="Views\Maganement\Account_Detail.cshtml" />
+    <Content Include="Views\Maganement\Feedback.cshtml" />
+    <Content Include="Views\Accounts\Info.cshtml" />
+    <Content Include="Views\Accounts\UpdatePasswordView.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62683</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62683/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

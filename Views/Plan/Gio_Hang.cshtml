@@ -1,0 +1,117 @@
+﻿@using ThongDong_MVC.Models;
+@{
+    ViewBag.Title = "Your Cart";
+}
+
+@section Style{
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            border-top: 1px solid rgba(190, 190, 190, 0.5)
+        }
+
+        .quantity {
+            background: rgb(230 230 230 / 50%);
+            border-color: rgba(197, 197, 197, 0.5);
+        }
+
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        a {
+            color: #5a5a5a;
+        }
+
+        .button-form {
+            color: #5a5a5a !important;
+            width: 100%;
+        }
+    </style>
+}
+
+<header>
+    <h1>Your Plans</h1>
+</header>
+<br />
+@{
+    if (Session["Plan"] != null)
+    {
+        using (Html.BeginForm("UpdatePlan", "Plan", FormMethod.Post))
+        {
+            <table class="table">
+                <tr>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Date Start</th>
+                    <th>Date End</th>
+                    <th>Quantity Adult</th>
+                    <th>Quantity Child</th>
+                    <th>Price Child</th>
+                    <th>Price Adult</th>
+                    <th>Sub Total</th>
+                    <th>Action</th>
+                </tr>
+                @{ int i = 0; }
+                @foreach (var Plan in (List<Plan>)Session["Plan"])
+                {
+                    double PA = Convert.ToDouble(Plan.Tour.PRICE_ADULT);
+                    double PC = Convert.ToDouble(Plan.Tour.PRICE_CHILD);
+                    int QA = Convert.ToInt32(Plan.QuantityAdult);
+                    int QC = Convert.ToInt32(Plan.QuantityChild);
+                    double subtotal = PA * QA + PC * QC;
+                    <tr>
+                        <td>@Html.FormatValue(++i, "")</td>
+                        <td>@Plan.Tour.NAME</td>
+                        <td><input type="date" name="DateStart" class="quantity text-center" value="@Plan.DateStart.ToString("yyyy-MM-dd")" id="departure-date" onchange="validateDepartureDate()" formaction="dd-MM-yyyy"/></td>
+                        <td>@Plan.DateEnd.ToString("dd-MM-yyyy")</td>
+                        <td><input type="text" name="quantityAdult" class="quantity text-center" value="@Plan.QuantityAdult" /></td>
+                        <td><input type="text" name="quantityChild" class="quantity text-center" value="@Plan.QuantityChild" /></td>
+                        <td>@Html.FormatValue(Plan.Tour.PRICE_CHILD, "{0:C}")</td>
+                        <td>@Html.FormatValue(Plan.Tour.PRICE_ADULT, "{0:C}")</td>
+                        <td>@Html.FormatValue(subtotal, "{0:C}")</td>
+                        <td><a class="text-center" href="@Url.Action("RemoveItem", "Plan", new { Id = Plan.Tour.TOUR_ID})"><span class="glyphicon glyphicon-trash" style="color: black"></span></a></td>
+                    </tr>
+                }
+                <tr>
+                    @{
+                        List<Plan> temp = (List<Plan>)Session["Plan"];
+                        var total = temp.Sum(x => x.QuantityAdult * x.Tour.PRICE_ADULT + x.QuantityChild * x.Tour.PRICE_CHILD);
+                    }
+                    <td colspan="2" class="text-center">
+                        <button class="button-form quantity">@Html.ActionLink("Continue to Booking", "navTour", "ThongDong") &nbsp;<span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <br /><button class="button-form quantity">@Html.ActionLink("Empty Plan", "ClearPlan", "Plan") &nbsp;<span class="glyphicon glyphicon-refresh"></span></button>
+                        <br /><button class="button-form quantity">@Html.ActionLink("Check Out", "CheckOut", "Plan") &nbsp;<span class="glyphicon glyphicon-check"></span></button>
+                        <br /><input type="submit" class="quantity button-form" value="Update Plan" /><br />
+                    </td>
+                    <td><p id="errmsg"></p></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right">Total: </td>
+                    <td colspan="2">
+                        @Html.FormatValue(total, "{0:C}")
+                    </td>
+                </tr>
+            </table>
+        }
+
+    }
+    else
+    {
+        <h4 style="margin-left:2%">No items in your Plan!</h4>
+        <p style="margin-left:5%">Go booking page @Html.ActionLink("now", "navTour", "ThongDong", null, new { @style = " color: cornflowerblue" })</p>
+    }
+}
+<script>
+    function validateDepartureDate() {
+        const today = new Date();
+        const departureDate = new Date(document.getElementById("departure-date").value);
+
+        if (departureDate < today) {
+            document.getElementById("departure-date").setCustomValidity("The date of departure must not be in the past.");
+        } else {
+            document.getElementById("departure-date").setCustomValidity("");
+        }
+    }
+</script>

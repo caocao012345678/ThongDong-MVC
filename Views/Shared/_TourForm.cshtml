@@ -1,0 +1,52 @@
+﻿@model ThongDong_MVC.Models.TOUR
+
+<form class="form-fixed slideanim tour-form" action=@Url.Action("OrderNow", "Plan", new {Id = Model.TOUR_ID}) method="post">
+    <h2>Lịch khởi hành &amp; giá</h2>
+    <div class="form-group">
+        <label for="departure-date">Ngày khởi hành:</label>
+        <input type="date" class="form-control text-center" value="@DateTime.Now.ToString("yyyy-MM-dd")" id="departure-date" name="DateStart" onchange="validateDepartureDate()" >
+    </div>
+    <div class="form-group">
+        <label>Người lớn: @Model.PRICE_ADULT$/Vé </label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default adult-minus" type="button">-</button>
+            </span>
+            <input type="text" class="form-control adult text-center" value="1" name="QuantityAdult">
+            <span class="input-group-btn">
+                <button class="btn btn-default adult-plus" type="button">+</button>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Trẻ em: @Model.PRICE_CHILD$/Vé</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default child-minus" type="button">-</button>
+            </span>
+            <input type="text" class="form-control child text-center" value="0" name="QuantityChild">
+            <span class="input-group-btn">
+                <button class="btn btn-default child-plus" type="button">+</button>
+            </span>
+        </div>
+    </div>
+    <div class="text-center">
+        <div id="total-price">Tổng chi phí: @Model.PRICE_ADULT$</div>
+    </div><br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Yêu cầu đặt</button>
+        <button type="reset" class="btn btn-default reset-button">Làm mới</button>
+    </div>
+</form>
+<script>
+    function validateDepartureDate() {
+        const today = new Date();
+        const departureDate = new Date(document.getElementById("departure-date").value);
+
+        if (departureDate < today) {
+            document.getElementById("departure-date").setCustomValidity("Ngày khởi hành không được nằm trong quá khứ.");
+        } else {
+            document.getElementById("departure-date").setCustomValidity("");
+        }
+    }
+</script>

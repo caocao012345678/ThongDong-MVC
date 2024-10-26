@@ -1,0 +1,67 @@
+﻿@model ThongDong_MVC.Models.ACCOUNT
+@{
+    ViewBag.Title = "Account Detail";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    ThongDong_MVC.Models.ThongDongDBContext dBContext = new ThongDong_MVC.Models.ThongDongDBContext();
+}
+
+<h2>Account Detail</h2>
+
+
+<style>
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: 1px solid rgba(190, 190, 190, 0.5)
+    }
+
+    .quantity {
+        background: rgb(230 230 230 / 50%);
+        border-color: rgba(197, 197, 197, 0.5);
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    a {
+        color: #5a5a5a;
+    }
+
+    .button-form {
+        color: #5a5a5a !important;
+        width: 100%;
+    }
+</style>
+<table class="table">
+    <tr>
+        <td>User Name</td>
+        <td>Role</td>
+    </tr>
+    <tr>
+        <td>@Model.USERNAME</td>
+        <td>
+            <form method="post" action="@Url.Action("Account_Update",new {id = Model.ACCOUNT_ID})">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <select name="role">
+                            @{
+                                if (Model.ACCOUNT_TYPE == "USER")
+                                {
+                                    <option value="1">ADMIN</option>
+                                    <option selected value="0">USER</option>
+                                }
+                                else
+                                {
+                                    <option selected value="1">ADMIN</option>
+                                    <option value="0">USER</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>

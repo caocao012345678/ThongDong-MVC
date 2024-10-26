@@ -1,0 +1,71 @@
+﻿@using ThongDong_MVC.Models
+@{
+    ViewBag.Title = "Check Out";
+}
+@section Style{
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            border-top: 1px solid rgba(190, 190, 190, 0.5)
+        }
+
+        .quantity {
+            background: rgb(230 230 230 / 50%);
+            border-color: rgba(197, 197, 197, 0.5);
+        }
+
+        .col-md-10 {
+            width: 500px;
+        }
+    </style>
+}
+<header>
+    <h1>Check Out</h1>
+</header>
+<h3>Please select the tour to complete the payment registration!</h3>
+<br />
+
+@{
+    if (Session["Plan"] != null)
+    {
+        <table class="table">
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Date Start</th>
+                <th>Date End</th>
+                <th>Quantity Adult</th>
+                <th>Quantity Child</th>
+                <th>Price Child</th>
+                <th>Price Adult</th>
+                <th>Sub Total</th>
+                <th>Action</th>
+            </tr>
+            @{ int i = 0; }
+            @foreach (var Plan in (List<Plan>)Session["Plan"])
+            {
+                double PA = Convert.ToDouble(Plan.Tour.PRICE_ADULT);
+                double PC = Convert.ToDouble(Plan.Tour.PRICE_CHILD);
+                int QA = Convert.ToInt32(Plan.QuantityAdult);
+                int QC = Convert.ToInt32(Plan.QuantityChild);
+                double subtotal = PA * QA + PC * QC;
+                <tr>
+                    <td>@Html.FormatValue(++i, "")</td>
+                    <td>@Plan.Tour.NAME</td>
+                    <td>@Plan.DateStart.ToString("dd-MM-yyyy")</td>
+                    <td>@Plan.DateEnd.ToString("dd-MM-yyyy")</td>
+                    <td>@Plan.QuantityAdult</td>
+                    <td>@Plan.QuantityChild</td>
+                    <td>@Html.FormatValue(Plan.Tour.PRICE_CHILD, "{0:C}")</td>
+                    <td>@Html.FormatValue(Plan.Tour.PRICE_ADULT, "{0:C}")</td>
+                    <td>@Html.FormatValue(subtotal, "{0:C}")</td>
+                    <td><a href="@Url.Action("CheckOutInfomation", "Plan", new {id = Plan.Tour.TOUR_ID,dateStart = Plan.DateStart, dateEnd = Plan.DateEnd, QuantityAdult = Plan.QuantityAdult, QuantityChild = Plan.QuantityChild})"><span class="glyphicon glyphicon-check"></span></a></td>
+                </tr>
+            }
+        </table>
+        <br />
+    }
+    else
+    {
+        <h4>No items in your cart!</h4>
+    }
+}

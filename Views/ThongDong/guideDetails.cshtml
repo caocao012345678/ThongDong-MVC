@@ -1,0 +1,12 @@
+﻿@model ThongDong_MVC.Models.GUIDE
+
+@section cssBonus{
+    <link rel="stylesheet" href="~/Styles/guide.css">
+}
+@{
+    ViewBag.Title = Model.NAME;
+    string htmlPath = Server.MapPath(Model.HTML);
+}
+
+@Html.Raw(File.ReadAllText(htmlPath))
+

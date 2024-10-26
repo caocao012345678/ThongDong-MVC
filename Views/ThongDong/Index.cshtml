@@ -1,0 +1,160 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="#">
+}
+@{
+    ViewBag.Title = "Thong Dong";
+}
+<div id="myCarousel" class="carousel slide slideanim-top" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <video autoplay muted loop width="100%" max-width="100%" max-height="700">
+                <source src="~/Image/video-backround/waves.mp4" type="video/mp4">
+            </video>
+
+        </div>
+        <div class="item">
+            <img src="~/Image/vinhhalong/post_vinh-ha-long-054559201019.jpg" alt="~/Image">
+            <div class="carousel-caption">
+                <h3>VỊNH HẠ LONG</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Image/LanHa//Lan-Ha1-2645-1691053870.jpg" alt="~/Image">
+            <div class="carousel-caption">
+                <h3>VỊNH LAN HÀ</h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<header>
+    <h3>Travel & Enjoy</h3>
+</header>
+<div class="container text-center slideanim">
+    <br>
+    <div class="row">
+        <div class="col-sm-4 slideanim-left">
+            <img src="~/Image/hue/chùa thiên mụ .jpg" class="img-responsive" style="width:100%" alt="~/Image">
+            <p>Chùa Thiên Mụ</p>
+        </div>
+        <div class="col-sm-4 slideanim">
+            <img src="~/Image/hue/Bà-Nà-2-700x700.jpg" class="img-responsive" style="width:100%" alt="~/Image">
+            <p>Bà Nà</p>
+        </div>
+        <div class="col-sm-4">
+            <div class="well slideanim-right">
+                <p>
+                    Du lịch không chỉ khám phá đẹp vẻ mới, mà còn là cơ hội thưởng thức cuộc sống. Tận hưởng ẩm thực
+                    địa phương, thả mình vào thiên nhiên hoặc thư giãn dưới bầu trời sao, du lịch là cách tuyệt vời
+                    để tận hưởng và thư giãn.
+                </p>
+            </div>
+            <div class="well slideanim-right">
+                <p>
+                    Ngoài ra, du lịch cũng giúp chúng ta thoát khỏi áp lực và căng thẳng hàng ngày. Khi ta rời xa
+                    công việc và cuộc sống thường ngày, ta có thể tập trung vào bản thân và tận hưởng những khoảnh
+                    khắc thư giãn. Không gì tuyệt vời hơn khi ta có thể ngồi dưới bầu trời sao rạng ngời, ngắm biển
+                    cả vô tận, và thả mình vào những hoạt động mà ta yêu thích.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="slideanim">
+    <h3>Places HOT</h3>
+</header>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box-places slideanim-left">
+                <a href="@Url.Action("placesPhuQuoc", "ThongDong")">
+                    <div>
+                        <img src="~/Image/places/phuquoc-show.jpg" alt="">
+                        <h1 class="h1-places">Phú Quốc</h1>
+                    </div>
+                </a>
+            </div><br>
+            <div class="row">
+                <div class="box-places slideanim-left">
+                    <a href="@Url.Action("placesDaLat", "ThongDong")">
+                        <div class="col-md-6">
+                            <img src="~/Image/places/dalat-show.jpg" alt="">
+                            <h1 class="h1-places">Đà Lạt</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="box-places slideanim-left">
+                    <a href="@Url.Action("placesQuyNhon", "ThongDong")">
+                        <div class="col-md-6">
+                            <img src="~/Image/places/quynhon-show.jpg" alt="">
+                            <h1 class="h1-places">Quy Nhơn</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-places slideanim-right">
+            <a href="@Url.Action("placesVungTau", "ThongDong")">
+                <div class="col-md-4">
+                    <img src="~/Image/places/vungtau-show.jpg" alt="">
+                    <h1 class="h1-places" style="top: 345px;">Vũng Tàu</h1>
+                </div>
+            </a>
+        </div>
+    </div><br>
+
+    <div class="row">
+        <div class="box-places slideanim-left">
+            <a href="@Url.Action("placesNhaTrang", "ThongDong")">
+                <div class="col-md-4">
+                    <img src="~/Image/places/nhatrang-show.jpg" alt="">
+                    <h1 class="h1-places" style="top: 345px;">Nha Trang</h1>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-8">
+            <div class="box-places slideanim-right">
+                <a href="@Url.Action("placesDaNang", "ThongDong")">
+                    <div>
+                        <img src="~/Image/places/danang-show.jpg" alt="">
+                        <h1 class="h1-places">Đà Nẵng</h1>
+                    </div>
+                </a>
+            </div><br>
+            <div class="row">
+                <div class="box-places slideanim-right">
+                    <a href="@Url.Action("placesPhanThiet", "ThongDong")">
+                        <div class="col-md-6">
+                            <img src="~/Image/places/phanthiet-show.jpg" alt="">
+                            <h1 class="h1-places">Phan Thiết</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="box-places slideanim-right">
+                    <a href="@Url.Action("placesPhuYen", "ThongDong")">
+                        <div class="col-md-6">
+                            <img src="~/Image/places/phuyen-show.jpg" alt="">
+                            <h1 class="h1-places">Phú Yên</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

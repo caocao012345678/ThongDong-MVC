@@ -1,0 +1,39 @@
+﻿@model ThongDong_MVC.Models.TOUR
+
+@{
+    ViewBag.Title = "Tour Detail";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    string htmlPath = Server.MapPath(Model.HTML);
+}
+<head>
+    <link rel="stylesheet" href="~/Styles/tour.css">
+</head>
+<h2>@Model.NAME</h2>
+<br />
+<div class="row">
+    <div class="col-lg-8">
+        @Html.Raw(File.ReadAllText(htmlPath))
+    </div>
+    <div class="col-lg-4">
+        <form method="post" action="@Url.Action("Update",new { id = Model.TOUR_ID})" class="form-control">
+            <div class="inputGroup">
+                <input type="number" value="@Model.END_DATE" name="EndDate" required/>
+                <label>Number Of Day</label>
+            </div>
+            <br />
+            <div class="inputGroup">
+                <input type="number" value="@Model.PRICE_ADULT" name="PriceAdult" required/>
+                <label>Price Adult</label>
+            </div>
+            <br />
+            <div class="inputGroup">
+                <input type="number" value="@Model.PRICE_CHILD" name="PriceChild" required/>
+                <label>Price Child</label>
+            </div>
+            <br />
+            <div class="text-center">
+                <button type="submit" class="button-form">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Oder Process Detail";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    ThongDong_MVC.Models.ThongDongDBContext dBContext = new ThongDong_MVC.Models.ThongDongDBContext();
+    ThongDong_MVC.Models.BOOKING_DETAIL BookingDetail = ViewBag.bookingDetail;
+}
+@model IEnumerable<ThongDong_MVC.Models.BOOKING_DETAIL_PEOPLE>
+<h2>Oder Processing Detail</h2>
+
+<style>
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: 1px solid rgba(190, 190, 190, 0.5)
+    }
+
+    .quantity {
+        background: rgb(230 230 230 / 50%);
+        border-color: rgba(197, 197, 197, 0.5);
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    a {
+        color: #5a5a5a;
+    }
+
+    .button-form {
+        color: #5a5a5a !important;
+        width: 100%;
+    }
+</style>
+<br />
+<h3 class="text-center">Tour Detail</h3>
+<table class="table">
+    <tr>
+        <th>Name of Tour</th>
+        <th>Start Date</th>
+        <th>Date End</th>
+        <th>Quantity Adult</th>
+        <th>Quantity Child</th>
+        <th>Other Requirements</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        @{
+            DateTime dateEnd = (DateTime)BookingDetail.END_DATE;
+            DateTime dateStart = (DateTime)BookingDetail.START_DATE;
+        }
+        <td>@ViewBag.TourName</td>
+        <td>@dateStart.ToString("dd-MM-yyyy")</td>
+        <td>@dateEnd.ToString("dd-MM-yyyy")</td>
+        <td>@BookingDetail.QUANTITY_ADULT</td>
+        <td>@BookingDetail.QUANTITY_CHILD</td>
+        <td>@BookingDetail.OTHER_REQUIREMENTS</td>
+        <td>@ViewBag.Status</td>
+    </tr>
+</table>
+<br />
+<div>
+    <h3 class="text-center">People Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bookingDetailPeople in Model)
+            {
+                <tr>
+                    <td>@bookingDetailPeople.NAME</td>
+                    <td>@bookingDetailPeople.PHONE</td>
+                    <td>@bookingDetailPeople.EMAIL</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

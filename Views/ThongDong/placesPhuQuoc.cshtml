@@ -1,0 +1,98 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Phú Quốc";
+}
+
+<head>   
+    <style>
+        .header {
+            background-image: url(/Image/Places/Hinh-anh-dao-Phu-Quoc-dep-nhat.jpg);
+        }
+    </style>
+</head>
+
+    <div class="header container">
+        <div class="text-center">
+            <h6></h6>
+            <h1 style="color: white;">Phú Quốc</h1>
+        </div>
+    </div>
+    <header><h3>Phú Quốc</h3></header><br>
+    <div class="container">
+        <div class="places-container">
+
+            <div class="places-card slideanim">
+                <a href="tour-HCM-GW-CC.html">
+                    <div class="places-img">
+                        <img src="~/Image/HCM-GW-CC/ivivu-grand-world-xe-dap-750x390.gif">
+                    </div>
+                </a>
+                <div class="places-details">
+                    <h3 class="places-title">Tour Phú Quốc 3N2Đ: HCM - Grand World - Câu Cá - Lặn Ngắm San Hô</h3>
+                    <p class="places-description scroll-content">
+                        Thường được biết đến với tên 'Đảo Ngọc', Phú Quốc sở hữu
+                        những bãi biển hoang sơ tuyệt đẹp, sinh vật biển đa dạng và cảnh quan thiên nhiên phong phú được
+                        kết hợp tài tình với những cánh rừng tự nhiên, núi, biển và thác nước, sông hồ. Phú Quốc luôn là
+                        một trong những điểm nghĩ dưỡng hàng đầu với các khu resort đẳng cấp quốc tế cùng với những khu
+                        vui chơi, giải trí quy mô bậc nhất Đông Nam Á như công viên chủ đề Vin Wonders, thành phố không
+                        ngủ Grand World, casino Phú Quốc....Ngoài ra, Phú Quốc vẫn còn lưu giữ nhiều di tích văn hóa,
+                        lịch sử và các nghề truyền thống hàng trăm năm tuổi như nghề làm nước mắm Phú Quốc trứ danh.
+                    </p>
+                    <button class="toggleButton button-more">More</button>
+                    <h4 class="tour-price">$269</h4>
+                    <a href="tour-HCM-GW-CC.html" class="tour-link">Learn More</a>
+                </div>
+            </div>
+
+            <div class="places-card slideanim">
+                <a href="guide-PhuQuoc.html">
+                    <div class="places-img">
+                        <img src="~/Image/PhuQuoc/dulichPhuQuoc-1649392573-9234-1649405369.jpg" alt="sapa">
+                    </div>
+                </a>
+                <div class="places-details">
+                    <h3>Phú Quốc</h3>
+                    <p class="scroll-content">
+                        Quần đảo Phú Quốc nằm trong vịnh Thái Lan, cách TP HCM khoảng 400 km về
+                        hướng
+                        tây. Nơi đây thu
+                        hút du khách trong và ngoài nước bởi các loại hình du lịch đa dạng, với tài nguyên biển, đảo
+                        phong phú; hệ sinh thái rừng, biển đa dạng. <br>
+
+                        Vùng biển Phú Quốc có 22 hòn đảo lớn, nhỏ, tổng diện tích khoảng 589,23 km2. Trong đó, đảo Phú
+                        Quốc lớn nhất được chia thành bắc đảo và nam đảo. Thị trấn Dương Đông nằm ở trung tâm.
+                    </p>
+                    <button class="toggleButton button-more">MORE</button><br><br>
+                    <a href="guide-PhuQuoc.html">Đọc thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contentList = document.querySelectorAll(".scroll-content");
+            const toggleButtons = document.querySelectorAll(".toggleButton");
+
+            toggleButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const content = contentList[index];
+                    if (!content.classList.contains("expanded")) {
+                        content.style.height = content.scrollHeight + "px";
+                    } else {
+                        content.style.height = "75px";
+                    }
+
+                    content.classList.toggle("expanded");
+                    if (content.classList.contains("expanded")) {
+                        button.textContent = "Less";
+                    } else {
+                        button.textContent = "More";
+                    }
+                });
+            });
+        });
+    </script>

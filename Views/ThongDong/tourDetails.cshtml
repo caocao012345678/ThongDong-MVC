@@ -1,0 +1,41 @@
+﻿@model ThongDong_MVC.Models.TOUR
+
+@section cssBonus{
+    <link rel="stylesheet" href="~/Styles/tour.css">
+}
+@{
+    Layout = "~/Views/Shared/_Layout_Tour_Detail.cshtml";
+    ViewBag.Title = Model.NAME;
+    ViewBag.Name = Model.NAME;
+    string htmlPath = Server.MapPath(Model.HTML);
+}
+
+@Html.Raw(File.ReadAllText(htmlPath))
+
+@section Script{
+    <script>
+        const adultInput = document.querySelector('.form-control.adult');
+        const childInput = document.querySelector('.form-control.child');
+        const totalPriceDisplay = document.querySelector('#total-price');
+
+        function updateTotalPrice() {
+            const adultPrice = @Model.PRICE_ADULT;
+            const childPrice = @Model.PRICE_CHILD;
+
+            const numAdults = parseInt(adultInput.value);
+            const numChildren = parseInt(childInput.value);
+
+            const total = (numAdults * adultPrice) + (numChildren * childPrice);
+            totalPriceDisplay.textContent = 'Tổng chi phí: ' + total +'$';
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            var defaultTab = document.querySelector(".tab button");
+            defaultTab.click();
+        });
+        document.querySelector('.reset-button').addEventListener('click', function () {
+            adultInput.value = '1';
+            childInput.value = '0';
+            updateTotalPrice();
+        });
+    </script>
+}

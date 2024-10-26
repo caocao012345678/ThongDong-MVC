@@ -1,0 +1,36 @@
+﻿@model ThongDong_MVC.Models.ACCOUNT
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="register-form">
+        <h2 class="slideanim-top">Info</h2>
+        <form class="slideanim" action="@Url.Action("InfoUpdate","Accounts", new {id = Model.ACCOUNT_ID})" method="post">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="inputGroup">
+                <input type="text" value="@Model.USERNAME" required name="Username" />
+                <label for="Username"><span class="glyphicon glyphicon-user"></span> Username</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="text" value="@Model.EMAIL" required autocomplete="on" name="Email">
+                <label for="Email"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+            </div>
+
+            <div class="inputGroup">
+                <input type="number" value="@Model.PHONE" required autocomplete="on" name="Phone">
+                <label for="Phone"><i class="fas fa-phone"></i> Phone</label>
+            </div>
+
+            <div class="inputGroup">
+                <a href="@Url.Action("UpdatePasswordView","Accounts")">Change Password</a>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="button-form">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+

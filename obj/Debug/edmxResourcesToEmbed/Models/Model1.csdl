@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThongDongDBContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ACCOUNT_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__ACCOUNT__CUSTOME__47DBAE45" FromRole="ACCOUNT" ToRole="CUSTOMER" />
+  </EntityType>
+  <EntityType Name="BOOKING">
+    <Key>
+      <PropertyRef Name="BOOKING_ID" />
+    </Key>
+    <Property Name="BOOKING_ID" Type="Int32" Nullable="false" />
+    <Property Name="TOUR_ID" Type="Int32" />
+    <Property Name="CUSTOMER_ID" Type="Int32" />
+    <Property Name="CUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="END_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__BOOKING__CUSTOME__412EB0B6" FromRole="BOOKING" ToRole="CUSTOMER" />
+    <NavigationProperty Name="TOUR" Relationship="Self.FK__BOOKING__TOUR_ID__403A8C7D" FromRole="BOOKING" ToRole="TOUR" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNT__CUSTOME__47DBAE45" FromRole="CUSTOMER" ToRole="ACCOUNT" />
+    <NavigationProperty Name="BOOKINGs" Relationship="Self.FK__BOOKING__CUSTOME__412EB0B6" FromRole="CUSTOMER" ToRole="BOOKING" />
+    <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK__FEEDBACK__CUSTOM__440B1D61" FromRole="CUSTOMER" ToRole="FEEDBACK" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="DESTINATION_ID" />
+    </Key>
+    <Property Name="DESTINATION_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TOURs" Relationship="Self.FK__TOUR__HTML__3D5E1FD2" FromRole="DESTINATION" ToRole="TOUR" />
+  </EntityType>
+  <EntityType Name="FEEDBACK">
+    <Key>
+      <PropertyRef Name="FEEDBACK_ID" />
+    </Key>
+    <Property Name="FEEDBACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="CUSTOMER_ID" Type="Int32" />
+    <Property Name="TOUR_ID" Type="Int32" />
+    <Property Name="FEEDBACK_DATE" Type="DateTime" Precision="0" />
+    <Property Name="FEEDBACK_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__FEEDBACK__CUSTOM__440B1D61" FromRole="FEEDBACK" ToRole="CUSTOMER" />
+    <NavigationProperty Name="TOUR" Relationship="Self.FK__FEEDBACK__TOUR_I__44FF419A" FromRole="FEEDBACK" ToRole="TOUR" />
+  </EntityType>
+  <EntityType Name="GUIDE">
+    <Key>
+      <PropertyRef Name="GUIDE_ID" />
+    </Key>
+    <Property Name="GUIDE_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HTML" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TOUR">
+    <Key>
+      <PropertyRef Name="TOUR_ID" />
+    </Key>
+    <Property Name="TOUR_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESTINATION_ID" Type="Int32" />
+    <Property Name="START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="END_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRICE_CHILD" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PRICE_ADULT" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HTML" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BOOKINGs" Relationship="Self.FK__BOOKING__TOUR_ID__403A8C7D" FromRole="TOUR" ToRole="BOOKING" />
+    <NavigationProperty Name="DESTINATION" Relationship="Self.FK__TOUR__HTML__3D5E1FD2" FromRole="TOUR" ToRole="DESTINATION" />
+    <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK__FEEDBACK__TOUR_I__44FF419A" FromRole="TOUR" ToRole="FEEDBACK" />
+  </EntityType>
+  <Association Name="FK__ACCOUNT__CUSTOME__47DBAE45">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOKING__CUSTOME__412EB0B6">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BOOKING__TOUR_ID__403A8C7D">
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="TOUR_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="TOUR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FEEDBACK__CUSTOM__440B1D61">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="FEEDBACK">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TOUR__HTML__3D5E1FD2">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="0..1" />
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Principal>
+      <Dependent Role="TOUR">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FEEDBACK__TOUR_I__44FF419A">
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+    <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="TOUR_ID" />
+      </Principal>
+      <Dependent Role="FEEDBACK">
+        <PropertyRef Name="TOUR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThongDongDataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+    <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="DESTINATIONs" EntityType="Self.DESTINATION" />
+    <EntitySet Name="FEEDBACKs" EntityType="Self.FEEDBACK" />
+    <EntitySet Name="GUIDEs" EntityType="Self.GUIDE" />
+    <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+    <AssociationSet Name="FK__ACCOUNT__CUSTOME__47DBAE45" Association="Self.FK__ACCOUNT__CUSTOME__47DBAE45">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOKING__CUSTOME__412EB0B6" Association="Self.FK__BOOKING__CUSTOME__412EB0B6">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="BOOKING" EntitySet="BOOKINGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BOOKING__TOUR_ID__403A8C7D" Association="Self.FK__BOOKING__TOUR_ID__403A8C7D">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="BOOKING" EntitySet="BOOKINGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FEEDBACK__CUSTOM__440B1D61" Association="Self.FK__FEEDBACK__CUSTOM__440B1D61">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TOUR__HTML__3D5E1FD2" Association="Self.FK__TOUR__HTML__3D5E1FD2">
+      <End Role="DESTINATION" EntitySet="DESTINATIONs" />
+      <End Role="TOUR" EntitySet="TOURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FEEDBACK__TOUR_I__44FF419A" Association="Self.FK__FEEDBACK__TOUR_I__44FF419A">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,97 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Nha Trang";
+}
+<head>
+    <style>
+        .header {
+            background-image: url(/Image/Places/vinpearl-resort-nha-trang-1_1629094945.jpg);
+        }
+    </style>
+</head>
+
+
+
+<div class="header container">
+    <div class="text-center">
+        <h6></h6>
+        <h1 style="color: white;">Nha Trang</h1>
+    </div>
+</div>
+<header><h3>Nha Trang</h3></header>
+<br>
+<div class="container">
+    <div class="places-container">
+
+        <div class="places-card slideanim">
+            <a href="tour-VW-DNVD-CT.html">
+                <div class="places-img">
+                    <img src="~/Image/VW-DNVD-CT/ivivu-nha-trang-bia-750x390.jpg">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">Tour Cao Cấp Nha Trang 3N2Đ: Vinwonders - Du Ngoạn Vịnh Đảo - City Tour</h3>
+                <p class="places-description scroll-content">
+                    Thành phố Nha Trang đẹp như một bức tuyệt tác của tự
+                    nhiên và con người với nhiều địa điểm du lịch nổi tiếng. Cảnh quan thiên nhiên đa dạng đã làm
+                    nên sức hút khó cưỡng của những hoạt động du lịch nơi đây, cùng với nền ẩm thực phong phú và con
+                    người thân thiện – nơi đây như đã chiếm trọn trái tim du khách muôn phương. Hứa hẹn sẽ mang đến
+                    cho bạn một chuyến nghỉ dưỡng đáng nhớ. Cùng iVIVU khám phá mảnh đất diệu kỳ này ngay hôm nay!
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$299</h4>
+                <a href="tour-VW-DNVD-CT.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+
+        <div class="places-card slideanim">
+            <a href="tour-NhaTrang.html">
+                <div class="places-img">
+                    <img src="~/Image/NhaTrang/NhaTrangKhanhHoa-1648888103-7869-1648888250.jpg" alt="sapa">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3>Nha Trang</h3>
+                <p class="scroll-content">
+                    Ngoài vui chơi trên biển, du khách có thể tham quan đảo khỉ, tháp bà Ponagar và thưởng thức món
+                    ngon của miền biển. <br>
+
+                    Nha Trang, thành phố biển nằm tại vị trí trung tâm tỉnh Khánh Hòa, từ lâu đã là một trong những
+                    điểm du lịch hút khách nhất Việt Nam. Được thiên nhiên ban tặng những bãi biển, vùng vịnh đẹp
+                    cùng nhiều đảo lớn nhỏ, thành phố còn sở hữu nhiều danh lam thắng cảnh, điểm tham quan, vui chơi
+                    và cơ sở nghỉ dưỡng.
+                </p>
+                <button class="toggleButton button-more">MORE</button><br><br>
+                <a href="tour-NhaTrang.html">Đọc thêm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

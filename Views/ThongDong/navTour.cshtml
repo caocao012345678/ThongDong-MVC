@@ -1,0 +1,52 @@
+﻿@using ThongDong_MVC.Models;
+@section cssBonus{
+    <link rel="stylesheet" href="~/Styles/tour.css">
+}
+@{ViewBag.Title = "ThongDong - Tours";}
+@Html.Partial("_SearchForm")
+
+<header>
+    <h1 class="slideanim" style="font-size: 26px;">Our Tours</h1>
+</header>
+<section>
+    <div class="tour-container">
+        @foreach (var item in Model)
+        {
+            string img = Convert.ToString(item.TOUR_ID) + ".png";
+            <div class="tour-card slideanim">
+                <a href="@Url.Action("tourDetails","ThongDong", new { id = item.TOUR_ID })">
+                    <div class="tour-img">
+                        <img src="~/Image/Tour_img/@img">
+                    </div>
+                </a>
+                <div class="tour-details">
+                    <h3 class="tour-title">@item.NAME</h3>
+                    <p class="tour-description scroll-content">@item.DESCRIPTION</p>
+                    <button class="toggleButton button-more">More</button>
+                    <h4 class="tour-price">$@item.PRICE_ADULT</h4>
+                    @Html.ActionLink("Learn More", "tourDetails", "ThongDong", new { id = item.TOUR_ID }, new { @class = "tour-link" })
+                    <br>
+                    @Html.ActionLink("Add to Your Plan", "OrderNow", "Plan", new { id = item.TOUR_ID }, new { @class = "tour-link" })
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else { content.style.height = "75px"; }
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else { button.textContent = "More"; }
+            });
+        });
+    });
+</script>

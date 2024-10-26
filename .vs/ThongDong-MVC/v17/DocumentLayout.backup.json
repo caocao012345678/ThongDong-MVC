@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|c:\\users\\hoang hieu\\onedrive\\m\u00E1y t\u00EDnh\\test\\thongdong-main\\thongdong-mvc\\views\\shared\\_cartinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|solutionrelative:views\\shared\\_cartinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\controllers\\plancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|solutionrelative:controllers\\plancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\views\\plan\\gio_hang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA88982-C2D2-4894-838D-72C5F7854E3F}|ThongDong-MVC.csproj|solutionrelative:views\\plan\\gio_hang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_CartInfo.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Shared\\_CartInfo.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_CartInfo.cshtml",
+              "ToolTip": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Shared\\_CartInfo.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_CartInfo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-15T05:36:35.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-15T05:35:23.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-15T05:35:16.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gio_Hang.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Plan\\Gio_Hang.cshtml",
+              "RelativeDocumentMoniker": "Views\\Plan\\Gio_Hang.cshtml",
+              "ToolTip": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Views\\Plan\\Gio_Hang.cshtml",
+              "RelativeToolTip": "Views\\Plan\\Gio_Hang.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-15T05:32:48.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlanController.cs",
+              "DocumentMoniker": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Controllers\\PlanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PlanController.cs",
+              "ToolTip": "C:\\Users\\HOANG HIEU\\OneDrive\\M\u00E1y t\u00EDnh\\Test\\ThongDong-main\\ThongDong-MVC\\Controllers\\PlanController.cs",
+              "RelativeToolTip": "Controllers\\PlanController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T05:32:18.222Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

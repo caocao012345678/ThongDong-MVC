@@ -1,0 +1,101 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Đà Nẵng";
+}
+
+<head>
+    <style>
+        .header {
+            background-image: url(/Image/DaNang/4-Cau-Rong-Han-Cau-Thuan-Phuoc-6049-1654169673.jpg);
+        }
+    </style>
+</head>
+<div class="header container">
+    <div class="text-center">
+        <h6></h6>
+        <h1 style="color: white;">Đà Nẵng</h1>
+    </div>
+</div>
+<header>
+    <h3>Đà Nẵng</h3>
+</header>
+<br>
+<div class="container">
+    <div class="places-container">
+
+        <div class="places-card slideanim-left">
+            <a href="tour-DaNang5N4D.html">
+                <div class="places-img">
+                    <img src="~/Image/hue/cau-rong.jpg">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">Tour Đà Nẵng 5N4Đ: Hội An - Bà Nà - Huế - Động Phong Nha</h3>
+                <p class="places-description scroll-content">
+                    Miền Trung, dải đất thân thương nối liền hai miền Nam -
+                    Bắc
+                    của Việt
+                    Nam. “Cung đường di sản miền Trung” sẽ kết nối du khách với các di sản văn hóa của nhân loại
+                    được UNESCO công nhận bao gồm: Quảng Bình cùng Vườn quốc gia Phong Nha - Kẻ Bàng; Huế với hai di
+                    sản là Quần thể di tích Cố đô Huế và Nhã Nhạc cung đình; Quảng Nam với hai di sản là Thánh địa
+                    Mỹ Sơn và đô thị cổ Hội An. Trên mỗi bước đi, du khách còn có thể khám phá cho mình nhiều điểm
+                    đến hấp dẫn: Bà Nà Hill, Làng Chài Lăng Cô, …và nhiều bãi tắm tuyệt đẹp: Cửa Đại, Non Nước, Lăng
+                    Cô, Nhật Lệ…cùng với những nét ẩm thực độc đáo của Miền Trung. <br>Cùng iVIVU trải nghiệm cung
+                    đường
+                    tuyệt vời này ngay hôm nay!
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$199</h4>
+                <a href="tour-DaNang5N4D.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+
+        <div class="places-card slideanim-right">
+            <a href="guide-DaNang.html">
+                <div class="places-img">
+                    <img src="~/Image/DaNang/CauVangDaNang-1654082224-7229-1654082320.jpg" alt="sapa">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3>Đà Nẵng</h3>
+                <p class="scroll-content">
+                    Thành phố Đà Nẵng nằm ở miền Trung, chia đều khoảng cách giữa thủ đô Hà
+                    Nội và TP HCM. Đà Nẵng
+                    còn là trung tâm của 3 di sản văn hóa thế giới là Cố đô Huế, phố cổ Hội An và thánh địa Mỹ Sơn.
+                    Phía bắc Đà Nẵng giáp tỉnh Thừa Thiên - Huế, phía tây và nam giáp tỉnh Quảng Nam, phía đông giáp
+                    biển Đông.
+                </p>
+                <button class="toggleButton button-more">MORE</button><br><br>
+                <a href="guide-DaNang.html">Đọc thêm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

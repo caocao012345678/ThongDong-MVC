@@ -1,0 +1,133 @@
+﻿@using ThongDong_MVC.Models
+@{
+    ViewBag.Title = "Check Out Infomation";
+    ThongDongDBContext dBContext = new ThongDongDBContext();
+    int Id = ViewBag.id;
+    TOUR Tour = dBContext.TOURs.Where(ID => ID.TOUR_ID == Id).FirstOrDefault();
+}
+@section Style{
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            border-top: 1px solid rgba(190, 190, 190, 0.5)
+        }
+
+        .login-form {
+            max-width: 60% !important;
+        }
+        .inputGroup{
+            max-width: none;
+        }
+    </style>
+}
+<header>
+    <h2>Tour's Infomation</h2>
+</header>
+<br />
+@{
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Quantity Adult</th>
+            <th>Quantity Child</th>
+            <th>Price Adult</th>
+            <th>Price Child</th>
+            <th>Sub Total</th>
+        </tr>
+        @{
+            double PA = Convert.ToDouble(Tour.PRICE_ADULT);
+            double PC = Convert.ToDouble(Tour.PRICE_CHILD);
+            int QA = Convert.ToInt32(ViewBag.quantityAdult);
+            int QC = Convert.ToInt32(ViewBag.quantityChild);
+            double subtotal = PA * QA + PC * QC;
+            <tr>
+                <td>@Tour.NAME</td>
+                <td>@ViewBag.dateStart.ToString("dd-MM-yyyy")</td>
+                <td>@ViewBag.dateEnd.ToString("dd-MM-yyyy")</td>
+                <td>@QA</td>
+                <td>@QC</td>
+                <td>@Html.FormatValue(PA, "{0:C}")</td>
+                <td>@Html.FormatValue(PC, "{0:C}")</td>
+                <td>@Html.FormatValue(subtotal, "{0:C}")</td>
+            </tr>
+        }
+    </table>
+}
+<br />
+
+<header>
+    <h2>Customer's Infomation</h2>
+</header>
+<br />
+<div class="login-form">
+    <form action="@Url.Action("ProcessOrder", "Plan", new {Id, QA, QC, ViewBag.dateStart, ViewBag.dateEnd })" method="post">
+        <div class="row">
+
+            @if (QC != 0)
+            {
+                <div class="col-md-6">
+                    @for (int adult = 0; adult < QA; adult++)
+                    {
+                        <h3 class="text-center">Adult @(adult + 1)</h3>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="NameAdult@(adult)">
+                            <label>Full Name</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="Phone@(adult)">
+                            <label>Phone</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="Email@(adult)">
+                            <label>Email</label>
+                        </div>
+                        <br />
+                    }
+                </div>
+                <div class="col-md-6">
+                    @for (int child = 0; child < QC; child++)
+                    {
+                        <h3 class="text-center">Child @(child + 1)</h3>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="NameChild@(child)">
+                            <label>Full Name</label>
+                        </div>
+                        <br />
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    @for (int adult = 0; adult < QA; adult++)
+                    {
+                        <h3 class="text-center">Adult @(adult + 1)</h3>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="NameAdult@(adult)">
+                            <label>Full Name</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="Phone@(adult)">
+                            <label>Phone</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" required autocomplete="on" name="Email@(adult)">
+                            <label>Email</label>
+                        </div>
+                        <br />
+                    }
+                </div>
+            }
+        </div>
+        <div class="login-form">
+            <div class="inputGroup text-center">
+                <textarea name="Other"></textarea>
+                <label>Other requirements</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="button-form">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

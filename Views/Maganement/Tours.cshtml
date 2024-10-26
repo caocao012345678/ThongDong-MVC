@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Tours";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    ThongDong_MVC.Models.ThongDongDBContext dBContext = new ThongDong_MVC.Models.ThongDongDBContext();
+}
+<style>
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: 1px solid rgba(190, 190, 190, 0.5)
+    }
+
+    .quantity {
+        background: rgb(230 230 230 / 50%);
+        border-color: rgba(197, 197, 197, 0.5);
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    a {
+        color: #5a5a5a;
+    }
+
+    .button-form {
+        color: #5a5a5a !important;
+        width: 100%;
+    }
+</style>
+<h2>Tours</h2>
+@{
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Date End</td>
+            <td>Price Adult</td>
+            <td>Price Child</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var tour in dBContext.TOURs)
+        {
+            <tr>
+                <td>@tour.NAME</td>
+                <td>@tour.END_DATE Day</td>
+                <td>@tour.PRICE_ADULT</td>
+                <td>@tour.PRICE_CHILD</td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <a href="@Url.Action("Delete_Tour","Maganement", new {id = tour.TOUR_ID, type = "TOUR"})">Delete</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="@Url.Action("Tour_Detail","Maganement", new {id = tour.TOUR_ID})">Edit</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+}

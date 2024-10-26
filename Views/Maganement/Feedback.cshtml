@@ -1,0 +1,57 @@
+﻿@model ThongDong_MVC.Models.FEEDBACK
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout_Management.cshtml";
+    ThongDong_MVC.Models.ThongDongDBContext dBContext = new ThongDong_MVC.Models.ThongDongDBContext();
+}
+
+<h2>Feedback</h2>
+
+
+<style>
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: 1px solid rgba(190, 190, 190, 0.5)
+    }
+
+    .quantity {
+        background: rgb(230 230 230 / 50%);
+        border-color: rgba(197, 197, 197, 0.5);
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    a {
+        color: #5a5a5a;
+    }
+
+    .button-form {
+        color: #5a5a5a !important;
+        width: 100%;
+    }
+</style>
+@{
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Time</td>
+            <td>Content</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var feed in dBContext.FEEDBACKs)
+        {
+            DateTime Time = (DateTime)feed.FEEDBACK_DATE;
+            <tr>
+                <td>@feed.NAME.ToString()</td>
+                <td>@feed.EMAIL.ToString()</td>
+                <td>@Time.ToString("dd-MM-yyyy HH:mm")</td>
+                <td>@feed.FEEDBACK_TEXT</td>
+                <td>
+                    <a href="@Url.Action("DeleteFeedback","Maganement", new {id = feed.FEEDBACK_ID})">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+}

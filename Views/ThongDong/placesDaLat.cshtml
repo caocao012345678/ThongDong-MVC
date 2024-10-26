@@ -1,0 +1,96 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Đà Lạt";
+}
+<head>
+    <style>
+        .header {
+            background-image: url(/Image/Places/background-binh-minh-tren-da-lat_034627422.jpg);
+        }
+    </style>
+</head>
+
+<div class="header container">
+    <div class="text-center">
+        <h6></h6>
+        <h1 style="color: white;">Đà Lạt</h1>
+    </div>
+</div>
+<header>
+    <h3>Đà Lạt</h3>
+</header>
+<br>
+<div class="container">
+    <div class="places-container">
+
+        <div class="places-card slideanim">
+            <a href="tour-DL-NT-TPHB.html">
+                <div class="places-img">
+                    <img src="~/Image/DL-NT-TPHB/ivivu-da-lat-750x390.gif">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">Tour Đà Lạt 4N3Đ : Đà Lạt - Nha Trang - Thành Phố Hoa Biển</h3>
+                <p class="places-description scroll-content">
+                    Du lịch Nha Trang, Đà Lạt là một trong những lịch trình
+                    được nhiều người quan tâm vì đây là
+                    hai trong số nhiều địa danh thu hút đông đảo du khách. Nếu Đà Lạt mang vẻ đẹp kiêu sa của
+                    một thiếu nữ rực rỡ trong sắc xuân thì Nha Trang – nơi được mệnh danh là “hòn ngọc của Biển
+                    Đông” lại mang vẻ đẹp lung linh, huyền ảo với biển xanh, cát trắng cùng những hàng dừa rì
+                    rào, thẳng tắp. Du khách vừa được đắm mình trong khí trời se se lạnh của thành phố sương mù
+                    lại hòa mình cùng sóng biển cát vàng xứ Trầm hương . Giờ đây, hãy gác lại mọi bồn bề của
+                    cuộc sống để cùng iVIVU khám phá lịch trình hấp dẫn này ngay hôm nay!
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$219</h4>
+                <a href="tour-DL-NT-TPHB.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+
+        <div class="places-card slideanim">
+            <a href="guide-DaLat.html">
+                <div class="places-img">
+                    <img src="~/Image/DaLat/11BuoisangbinhyenDoicohonghoDa-8476-1276-1650882782.jpg" alt="sapa">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3>Đà Lạt</h3>
+                <p class="scroll-content">
+                    Đà Lạt là thủ phủ tỉnh Lâm Đồng, nằm trên cao nguyên Lâm Viên ở độ cao 1.500 m so với mực nước biển.
+                    Cách TP HCM khoảng 300 km và có khí hậu mát mẻ năm nên Đà Lạt là điểm nghỉ dưỡng lý tưởng, giúp du
+                    khách thoát khỏi nóng nực của vùng Nam Bộ.
+                </p>
+                <button class="toggleButton button-more">MORE</button><br><br>
+                <a href="guide-DaLat.html">Đọc thêm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="ThongDongDBContext">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="Models.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOKINGs">
+      <EntityTypeMapping TypeName="Models.BOOKING">
+        <MappingFragment StoreEntitySet="BOOKING">
+          <ScalarProperty Name="BOOKING_ID" ColumnName="BOOKING_ID" />
+          <ScalarProperty Name="QUANTITY_ADULT" ColumnName="QUANTITY_ADULT" />
+          <ScalarProperty Name="QUANTITY_CHILD" ColumnName="QUANTITY_CHILD" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOKING_DETAIL">
+      <EntityTypeMapping TypeName="Models.BOOKING_DETAIL">
+        <MappingFragment StoreEntitySet="BOOKING_DETAIL">
+          <ScalarProperty Name="BOOKING_DETAIL_ID" ColumnName="BOOKING_DETAIL_ID" />
+          <ScalarProperty Name="BOOKING_ID" ColumnName="BOOKING_ID" />
+          <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+          <ScalarProperty Name="BOOKING_PEOPLE" ColumnName="BOOKING_PEOPLE" />
+          <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="PRICE_CHILD" ColumnName="PRICE_CHILD" />
+          <ScalarProperty Name="PRICE_ADULT" ColumnName="PRICE_ADULT" />
+          <ScalarProperty Name="QUANTITY_ADULT" ColumnName="QUANTITY_ADULT" />
+          <ScalarProperty Name="QUANTITY_CHILD" ColumnName="QUANTITY_CHILD" />
+          <ScalarProperty Name="OTHER_REQUIREMENTS" ColumnName="OTHER_REQUIREMENTS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOOKING_DETAIL_PEOPLE">
+      <EntityTypeMapping TypeName="Models.BOOKING_DETAIL_PEOPLE">
+        <MappingFragment StoreEntitySet="BOOKING_DETAIL_PEOPLE">
+          <ScalarProperty Name="BOOKING_DETAIL_PEOPLE_ID" ColumnName="BOOKING_DETAIL_PEOPLE_ID" />
+          <ScalarProperty Name="BOOKING_ID" ColumnName="BOOKING_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATIONs">
+      <EntityTypeMapping TypeName="Models.DESTINATION">
+        <MappingFragment StoreEntitySet="DESTINATION">
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FEEDBACKs">
+      <EntityTypeMapping TypeName="Models.FEEDBACK">
+        <MappingFragment StoreEntitySet="FEEDBACK">
+          <ScalarProperty Name="FEEDBACK_ID" ColumnName="FEEDBACK_ID" />
+          <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FEEDBACK_DATE" ColumnName="FEEDBACK_DATE" />
+          <ScalarProperty Name="FEEDBACK_TEXT" ColumnName="FEEDBACK_TEXT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GUIDEs">
+      <EntityTypeMapping TypeName="Models.GUIDE">
+        <MappingFragment StoreEntitySet="GUIDE">
+          <ScalarProperty Name="GUIDE_ID" ColumnName="GUIDE_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="HTML" ColumnName="HTML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLE_MASTER">
+      <EntityTypeMapping TypeName="Models.ROLE_MASTER">
+        <MappingFragment StoreEntitySet="ROLE_MASTER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RollName" ColumnName="RollName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOURs">
+      <EntityTypeMapping TypeName="Models.TOUR">
+        <MappingFragment StoreEntitySet="TOUR">
+          <ScalarProperty Name="TOUR_ID" ColumnName="TOUR_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="PRICE_CHILD" ColumnName="PRICE_CHILD" />
+          <ScalarProperty Name="PRICE_ADULT" ColumnName="PRICE_ADULT" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="HTML" ColumnName="HTML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_ROLES_MAPPING">
+      <EntityTypeMapping TypeName="Models.USER_ROLES_MAPPING">
+        <MappingFragment StoreEntitySet="USER_ROLES_MAPPING">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

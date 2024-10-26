@@ -1,0 +1,100 @@
+﻿@section cssBonus
+{
+    <link rel="stylesheet" href="~/Styles/places.css">
+}
+@{
+    ViewBag.Title = "Thong Dong - Phú Yên";
+}
+<head>
+    <style>
+        .header {
+            background-image: url(/Image/Places/bai_bien_phu_yen_gonatour.jpg);
+        }
+    </style>
+</head>
+
+
+<div class="header container">
+    <div class="text-center">
+        <h6></h6>
+        <h1 style="color: white;">Phú Yên</h1>
+    </div>
+</div>
+<header><h3>Phú Yên</h3></header>
+<br>
+<div class="container">
+    <div class="places-container">
+
+        <div class="places-card slideanim-left">
+            <a href="tour-QN-PY.html">
+                <div class="places-img">
+                    <img src="~/Image/QN-PY/ganh-da-dia-750x390.jpg">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">Tour Miền Trung 3N2Đ: Quy Nhơn - Phú Yên</h3>
+                <p class="places-description scroll-content">
+                    'Xứ Nẫu' được thiên nhiên ban tặng phong cảnh nên thơ,
+                    hữu tình và những bãi biển trải dài tuyệt đẹp, Phú Yên - Bình Định trở thành điểm nổi bật cho
+                    chuyến du lịch hè đáng nhớ cho du khách mọi miền. Không chỉ mang nét duyên của thành phố ôm trọn
+                    hai ngọn núi, Phú Yên còn mê đắm lòng người ở những đầm nước trong vắt, những bãi biển bao la,
+                    ghềnh Đá Đĩa kỳ thú. Qua đến Quy Nhơn trải nghiệm những hành trình hấp dẫn như Kỳ Co nước trong
+                    xanh màu ngọc bích được mệnh danh là “Maldives của Việt Nam”, Eo Gió vừa lãng mạn vừa hùng vĩ để
+                    ngắm hoàng hôn. 'Xứ Nẫu' nổi lên kiến trúc Champa Tháp Nhạn, Tháp Đôi độc đáo được xây dựng
+                    khoảng thế kỷ 12.
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$219</h4>
+                <a href="tour-QN-PY.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+
+        <div class="places-card slideanim-right">
+            <a href="tour-HCM-KC-EG-PY.html">
+                <div class="places-img">
+                    <img src="~/Image/HCM-KC-EG-PY/ivivu-3-bai-ky-co-750x390.gif">
+                </div>
+            </a>
+            <div class="places-details">
+                <h3 class="places-title">Tour Miền Trung 3N2Đ: HCM - Kỳ Co - Eo Gió - Phú Yên</h3>
+                <p class="places-description scroll-content">
+                    Quy Nhơn – Thành phố trung tâm của Tỉnh Bình Định với bờ
+                    biển dài, chạy quanh thành phố, được đánh giá là một trong những bãi biển đẹp nhất Miền Trung.
+                    Với thành Đồ Bàn – Kinh đô cũ của đất nước Champa vẫn còn đó những nét vết tích cổ kính, rêu
+                    phong. <br>
+                    Nằm cách Tp Quy Nhơn khoảng 100km về phía nam, Tp Tuy Hòa vẫn khá mới lạ và còn nhiều nét hoang
+                    sơ trong bản đồ du lịch của nhiều du khách. Đến Tuy Hòa, quý khách nhất định phải ghé đến Gành
+                    Đá Đĩa – Thắng cảnh độc nhất vô nhị của Việt Nam. Cùng iVIVU khám phá 2 tỉnh ngay hôm nay !
+                </p>
+                <button class="toggleButton button-more">More</button>
+                <h4 class="tour-price">$139</h4>
+                <a href="tour-HCM-KC-EG-PY.html" class="tour-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const contentList = document.querySelectorAll(".scroll-content");
+        const toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const content = contentList[index];
+                if (!content.classList.contains("expanded")) {
+                    content.style.height = content.scrollHeight + "px";
+                } else {
+                    content.style.height = "75px";
+                }
+
+                content.classList.toggle("expanded");
+                if (content.classList.contains("expanded")) {
+                    button.textContent = "Less";
+                } else {
+                    button.textContent = "More";
+                }
+            });
+        });
+    });
+</script>

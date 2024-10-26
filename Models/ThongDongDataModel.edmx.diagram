@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b02f545d522c46b49045ae1cdec40a44" Name="Diagram1">
+        <EntityTypeShape EntityType="Models.ACCOUNT" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.BOOKING" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.BOOKING_DETAIL" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.BOOKING_DETAIL_PEOPLE" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.DESTINATION" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.FEEDBACK" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.GUIDE" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.ROLE_MASTER" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.TOUR" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.USER_ROLES_MAPPING" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="Models.FK__BOOKING_D__ACCOU__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__FEEDBACK__ACCOUN__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__USER_ROLE__UserI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__BOOKING_D__BOOKI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__BOOKING_D__EMAIL__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__BOOKING_D__TOUR___32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TOUR__HTML__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__USER_ROLE__RoleI__3C69FB99" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
